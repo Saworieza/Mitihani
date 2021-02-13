@@ -15,6 +15,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "New Student"
 
     fill_in "Adm no", with: @student.adm_no
+    fill_in "Classroom", with: @student.classroom_id
     fill_in "First name", with: @student.first_name
     fill_in "Last name", with: @student.last_name
     fill_in "Stream", with: @student.stream_id
@@ -29,6 +30,7 @@ class StudentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Adm no", with: @student.adm_no
+    fill_in "Classroom", with: @student.classroom_id
     fill_in "First name", with: @student.first_name
     fill_in "Last name", with: @student.last_name
     fill_in "Stream", with: @student.stream_id

@@ -4,10 +4,12 @@ one:
   adm_no: 1
   first_name: MyString
   last_name: MyString
+  classroom: one
   stream: one
 
 two:
   adm_no: 1
   first_name: MyString
   last_name: MyString
+  classroom: two
   stream: two

@@ -1,12 +1,15 @@
 %p#notice= notice
 
 %p
+  %b Classroom:
+  = @stream.classroom.name
+  = @stream.classroom.year.year
+%p
   %b Name:
   = @stream.name
-%p
-  %b Classroom:
-  = @stream.classroom
 
 = link_to 'Edit', edit_stream_path(@stream)
+\|
+= link_to 'Destroy', @stream, method: :delete, data: { confirm: 'Are you sure?' }
 \|
 = link_to 'Back', streams_path

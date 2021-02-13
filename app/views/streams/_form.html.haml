@@ -7,10 +7,11 @@
           %li= message
 
   .field
+    = f.label :classroom
+    = f.collection_select :classroom_id, Classroom.order(:name), :id, :name, include_blank: true
+    / = f.text_field :classroom
+  .field
     = f.label :name
     = f.text_field :name
-  .field
-    = f.label :classroom
-    = f.text_field :classroom
   .actions
     = f.submit 'Save'

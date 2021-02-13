@@ -7,13 +7,14 @@
           %li= message
 
   .field
+    = f.label :year
+    = f.collection_select :year_id, Year.all, :id, :year, include_blank: true
+    / = f.text_field :year
+  .field
     = f.label :name
     = f.text_field :name
   .field
     = f.label :number
     = f.number_field :number
-  .field
-    = f.label :year
-    = f.text_field :year
   .actions
     = f.submit 'Save'

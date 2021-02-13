@@ -9,7 +9,16 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="container">
+    <div class="row">
+      <nav>
+        <%= link_to 'Home', root_path %>
+        <%= link_to 'Year', years_path %>
+        <%= link_to 'Classes', classrooms_path %>
+        <%= link_to 'Streams', streams_path %>
+        <%= link_to 'Students', students_path %>
+      </nav>
+    </div>
+      <%= yield %>
   </body>
 </html>

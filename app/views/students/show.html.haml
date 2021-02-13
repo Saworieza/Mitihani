@@ -1,6 +1,13 @@
 %p#notice= notice
 
 %p
+  %b Classroom:
+  = @student.classroom.name
+  = @student.classroom.year.year
+%p
+  %b Stream:
+  = @student.stream.name
+%p
   %b Adm no:
   = @student.adm_no
 %p
@@ -9,10 +16,9 @@
 %p
   %b Last name:
   = @student.last_name
-%p
-  %b Stream:
-  = @student.stream
 
 = link_to 'Edit', edit_student_path(@student)
 \|
 = link_to 'Back', students_path
+\|
+= link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }

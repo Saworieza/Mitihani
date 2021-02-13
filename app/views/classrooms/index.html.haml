@@ -1,24 +1,18 @@
 %h1 Listing classrooms
 
-%table
+%table.table.table-striped
   %thead
     %tr
       %th Name
       %th Number
       %th Year
-      %th
-      %th
-      %th
 
   %tbody
     - @classrooms.each do |classroom|
       %tr
-        %td= classroom.name
+        %td= classroom.year.year
+        %td= link_to classroom.name, classroom
         %td= classroom.number
-        %td= classroom.year
-        %td= link_to 'Show', classroom
-        %td= link_to 'Edit', edit_classroom_path(classroom)
-        %td= link_to 'Destroy', classroom, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
