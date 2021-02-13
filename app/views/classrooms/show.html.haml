@@ -1,0 +1,15 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @classroom.name
+%p
+  %b Number:
+  = @classroom.number
+%p
+  %b Year:
+  = @classroom.year
+
+= link_to 'Edit', edit_classroom_path(@classroom)
+\|
+= link_to 'Back', classrooms_path

@@ -1,0 +1,18 @@
+%p#notice= notice
+
+%p
+  %b Adm no:
+  = @student.adm_no
+%p
+  %b First name:
+  = @student.first_name
+%p
+  %b Last name:
+  = @student.last_name
+%p
+  %b Stream:
+  = @student.stream
+
+= link_to 'Edit', edit_student_path(@student)
+\|
+= link_to 'Back', students_path
