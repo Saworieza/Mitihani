@@ -64,6 +64,6 @@ class MarksController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def mark_params
-      params.require(:mark).permit(:mark, :stream_id)
+      params.require(:mark).permit(:mark, :result_id)
     end
 end

@@ -8,10 +8,9 @@
 
   .field
     = f.label :mark
-    = f.number_field :mark
+    = f.text_field :mark
   .field
-    = f.label :stream
-    = f.collection_select :stream_id, Stream.all, :id, :name  , include_blank: true
-    / = f.text_field :stream
+    = f.label :result
+    = f.text_field :result
   .actions
     = f.submit 'Save'

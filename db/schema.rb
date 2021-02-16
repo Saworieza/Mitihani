@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_14_104827) do
+ActiveRecord::Schema.define(version: 2021_02_16_173100) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(version: 2021_02_14_104827) do
   end
 
   create_table "marks", force: :cascade do |t|
-    t.integer "mark"
-    t.integer "stream_id"
+    t.string "mark"
+    t.integer "result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["stream_id"], name: "index_marks_on_stream_id"
+    t.index ["result_id"], name: "index_marks_on_result_id"
   end
 
   create_table "results", force: :cascade do |t|

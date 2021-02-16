@@ -19,13 +19,13 @@
       %th Full Name
       %th Marks
       %th 
-      %th 
 
   %tbody
     - @result.stream.students.each do |student|
       %tr
         %td= link_to student.adm_no, student
         %td= "#{student.first_name} #{student.last_name}"
+        %td
 
 = link_to 'Edit', edit_result_path(@result)
 \|

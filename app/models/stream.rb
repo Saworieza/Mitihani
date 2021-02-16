@@ -3,6 +3,6 @@ class Stream < ApplicationRecord
   has_many :students
 
   def full_name
-  	"#{stream.classroom.name} #{stream.name}, #{stream.classroom.year.year}"
+  	"#{classroom.name} #{name}, #{classroom.year.year}"
   end
 end

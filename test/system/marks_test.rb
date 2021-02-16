@@ -15,7 +15,7 @@ class MarksTest < ApplicationSystemTestCase
     click_on "New Mark"
 
     fill_in "Mark", with: @mark.mark
-    fill_in "Stream", with: @mark.stream_id
+    fill_in "Result", with: @mark.result_id
     click_on "Create Mark"
 
     assert_text "Mark was successfully created"
@@ -27,7 +27,7 @@ class MarksTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Mark", with: @mark.mark
-    fill_in "Stream", with: @mark.stream_id
+    fill_in "Result", with: @mark.result_id
     click_on "Update Mark"
 
     assert_text "Mark was successfully updated"
