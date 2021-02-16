@@ -1,0 +1,22 @@
+= form_for @result do |f|
+  - if @result.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@result.errors.count, "error")} prohibited this result from being saved:"
+      %ul
+        - @result.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :stream
+    = f.collection_select :stream_id, Stream.all, :id, :name, include_blank: true
+    / = f.text_field :stream
+  .field
+    = f.label :subject
+    = f.collection_select :subject_id, Subject.all, :id, :name, include_blank: true
+    / = f.text_field :subject
+  .field
+    = f.label :exam
+    = f.collection_select :exam_id, Exam.all, :id, :name, include_blank: true
+    / = f.text_field :exam
+  .actions
+    = f.submit 'Save'

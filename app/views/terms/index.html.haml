@@ -1,0 +1,17 @@
+%h1 Listing terms
+= link_to 'New Term', new_term_path
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Year
+
+  %tbody
+    - @terms.each do |term|
+      %tr
+        %td= link_to term.name, term
+        %td= term.year.year
+
+%br
+

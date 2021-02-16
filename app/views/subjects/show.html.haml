@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Code:
+  = @subject.code
+%p
+  %b Short:
+  = @subject.short
+%p
+  %b Name:
+  = @subject.name
+
+= link_to 'Edit', edit_subject_path(@subject)
+\|
+= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
+\|
+= link_to 'Back', subjects_path

@@ -1,0 +1,14 @@
+%p#notice= notice
+
+%p
+  %b Year:
+  = @term.year.year
+%p
+  %b Name:
+  = @term.name
+
+= link_to 'Edit', edit_term_path(@term)
+\|
+= link_to 'Back', terms_path
+\|
+= link_to 'Destroy', @term, method: :delete, data: { confirm: 'Are you sure?' }

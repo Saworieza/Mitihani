@@ -1,0 +1,34 @@
+%p#notice= notice
+
+%p
+  %b Classroom:
+  ="#{@result.stream.classroom.name} #{@result.stream.name}, #{@result.stream.classroom.year.year}"
+  / = @result.stream
+%p
+  %b Subject:
+  = @result.subject.name
+%p
+  %b Exam:
+  = @result.exam.name
+
+%b Students:
+%table.table.table-striped
+  %thead
+    %tr
+      %th Adm no
+      %th Full Name
+      %th Marks
+      %th 
+      %th 
+
+  %tbody
+    - @result.stream.students.each do |student|
+      %tr
+        %td= link_to student.adm_no, student
+        %td= "#{student.first_name} #{student.last_name}"
+
+= link_to 'Edit', edit_result_path(@result)
+\|
+= link_to 'Destroy', @result, method: :delete, data: { confirm: 'Are you sure?' }
+\|
+= link_to 'Back', results_path

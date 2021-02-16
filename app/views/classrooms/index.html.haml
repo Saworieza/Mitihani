@@ -1,11 +1,12 @@
 %h1 Listing classrooms
+= link_to 'New Classroom', new_classroom_path
 
 %table.table.table-striped
   %thead
     %tr
+      %th Year
       %th Name
       %th Number
-      %th Year
 
   %tbody
     - @classrooms.each do |classroom|
@@ -16,4 +17,3 @@
 
 %br
 
-= link_to 'New Classroom', new_classroom_path

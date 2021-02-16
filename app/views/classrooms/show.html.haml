@@ -10,6 +10,19 @@
   %b Number:
   = @classroom.number
 
+%h3 Streams
+%table.table.table-striped
+  %thead
+    %tr
+      %th Name
+      %th Classroom
+
+  %tbody
+    - @classroom.streams.each do |stream|
+      %tr
+        %td= link_to stream.name, stream
+        %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+
 = link_to 'Edit', edit_classroom_path(@classroom)
 \|
 = link_to 'Back', classrooms_path

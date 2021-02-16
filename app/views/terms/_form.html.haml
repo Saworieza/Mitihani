@@ -1,0 +1,17 @@
+= form_for @term do |f|
+  - if @term.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@term.errors.count, "error")} prohibited this term from being saved:"
+      %ul
+        - @term.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :year
+    = f.collection_select :year_id, Year.all, :id, :year, include_blank: true
+  .field
+    = f.label :name
+    = f.text_field :name
+    / = f.text_field :year
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,18 @@
+%h1 Listing subjects
+= link_to 'New Subject', new_subject_path
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Code
+      %th Short
+      %th Name
+
+  %tbody
+    - @subjects.each do |subject|
+      %tr
+        %td= subject.code
+        %td= subject.short
+        %td= link_to subject.name, subject
+%br
+

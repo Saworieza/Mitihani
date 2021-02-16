@@ -24,3 +24,37 @@ students = Student.create([
 	{classroom_id: 2, stream_id: 3, adm_no: 1238, first_name: "Josephine", last_name: "Wonder" },
 	{classroom_id: 2, stream_id: 4, adm_no: 1239, first_name: "Prisca", last_name: "Wonder" }
 ])
+subjects = Subject.create([
+	{code: 101, short: "Eng", name: "English"}, 
+	{code: 102, short: "Kisw", name: "Kiswahili"},
+	{code: 121, short: "Math", name: "Mathematics"},
+	{code: 231, short: "Bio", name: "Biology"},
+	{code: 233, short: "Chem", name: "Chemistry"},
+	{code: 232, short: "Phy", name: "Physics"},
+	{code: 312, short: "Geo", name: "Geography"},
+	{code: 311, short: "Hist", name: "History"},
+	{code: 313, short: "CRE", name: "CRE"},
+	{code: 502, short: "Ger", name: "German"},
+	{code: 441, short: "Hsc", name: "Home Science"},
+	{code: 565, short: "BS", name: "Business Studies"},
+	{code: 443, short: "Agri", name: "Agriculture"}
+])
+terms = Term.create([
+	{year_id: 1, name: "Term One"},
+	{year_id: 1, name: "Term Two"},
+	{year_id: 1, name: "Term Three"},
+	{year_id: 2, name: "Term One"},
+	{year_id: 2, name: "Term Two"},
+	{year_id: 2, name: "Term Three"},
+	{year_id: 3, name: "Term One"},
+	{year_id: 3, name: "Term Two"},
+	{year_id: 3, name: "Term Three"}
+])
+exams = Exam.create([
+	{term_id: 1, name: "Opener"},
+	{term_id: 1, name: "Mid Term"},
+	{term_id: 1, name: "End Term"},
+  {term_id: 2, name: "Opener"},
+	{term_id: 2, name: "Mid Term"},
+	{term_id: 2, name: "End Term"}
+])

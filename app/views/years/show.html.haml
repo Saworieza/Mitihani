@@ -7,3 +7,31 @@
 = link_to 'Edit', edit_year_path(@year)
 \|
 = link_to 'Back', years_path
+
+%div.row
+  %div.col-lg-6
+    %h3 Classes
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Number
+
+      %tbody
+      - @year.classrooms.each do |classroom|
+        %tr
+          %td= link_to classroom.name, classroom
+          %td= classroom.number
+  %div.col-lg-6
+    %h3 Terms
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Year
+
+      %tbody
+      - @year.terms.each do |term|
+        %tr
+          %td= link_to term.name, term
+          %td= term.year.year

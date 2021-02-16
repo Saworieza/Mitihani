@@ -1,0 +1,22 @@
+%h1 Listing results
+
+%table
+  %thead.table.table-striped
+    %tr
+      %th Classroom
+      %th Subject
+      %th Exam
+      %th
+      %th
+      %th
+
+  %tbody
+    - @results.each do |result|
+      %tr
+        %td= link_to "#{result.stream.classroom.name} #{result.stream.name}, #{result.stream.classroom.year.year}", result
+        %td= result.subject.name  
+        %td= result.exam.name
+
+%br
+
+= link_to 'New Result', new_result_path

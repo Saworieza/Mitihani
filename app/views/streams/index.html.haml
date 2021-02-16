@@ -1,17 +1,17 @@
 %h1 Listing streams
+= link_to 'New Stream', new_stream_path
 
 %table.table.table-striped
   %thead
     %tr
-      %th Name
       %th Classroom
+      %th Stream
 
   %tbody
     - @streams.each do |stream|
       %tr
-        %td= link_to stream.name, stream
         %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+        %td= link_to stream.name, stream
 
 %br
 
-= link_to 'New Stream', new_stream_path

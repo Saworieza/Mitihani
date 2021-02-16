@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :marks
+  resources :results
+  resources :exams
+  resources :terms
+  resources :subjects
   resources :students
   resources :streams
   resources :classrooms
