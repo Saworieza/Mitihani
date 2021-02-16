@@ -16,7 +16,16 @@
     / = f.text_field :subject
   .field
     = f.label :exam
-    = f.collection_select :exam_id, Exam.all, :id, :name, include_blank: true
+    = f.collection_select :exam_id, Exam.all, :id, :exam_name, include_blank: true
     / = f.text_field :exams
+
+  %hr 
+  / list all students here and the mark field alongside if not push this fields to show
+  = f.fields_for :marks do |mark|
+    .field
+      = mark.label :mark
+      = mark.text_field :mark
+    %hr 
+
   .actions
     = f.submit 'Save'

@@ -5,11 +5,11 @@
   ="#{@result.stream.classroom.name} #{@result.stream.name}, #{@result.stream.classroom.year.year}"
   / = @result.stream
 %p
+  %b Exam:
+  = @result.exam.exam_name
+%p
   %b Subject:
   = @result.subject.name
-%p
-  %b Exam:
-  = @result.exam.name
 
 %b Students:
 %table.table.table-striped

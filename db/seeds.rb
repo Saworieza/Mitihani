@@ -58,3 +58,11 @@ exams = Exam.create([
 	{term_id: 2, name: "Mid Term"},
 	{term_id: 2, name: "End Term"}
 ])
+results = Result.create([
+	{stream_id: 1, subject_id: 1, exam_id: 1},
+	{stream_id: 1, subject_id: 1, exam_id: 2},
+	{stream_id: 1, subject_id: 1, exam_id: 3},
+	{stream_id: 2, subject_id: 1, exam_id: 1},
+	{stream_id: 2, subject_id: 1, exam_id: 2},
+	{stream_id: 2, subject_id: 1, exam_id: 3}
+])
