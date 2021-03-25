@@ -16,12 +16,14 @@
     %tr
       %th Name
       %th Classroom
+      %th Total Students
 
   %tbody
     - @classroom.streams.each do |stream|
       %tr
         %td= link_to stream.name, stream
         %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+        %td= stream.students.count
 
 = link_to 'Edit', edit_classroom_path(@classroom)
 \|

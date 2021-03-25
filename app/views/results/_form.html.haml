@@ -23,6 +23,9 @@
   / list all students here and the mark field alongside if not push this fields to show
   = f.fields_for :marks do |mark|
     .field
+      = mark.label :student_name
+      = mark.label :joel_sakwa
+    .field
       = mark.label :mark
       = mark.text_field :mark
     %hr 
