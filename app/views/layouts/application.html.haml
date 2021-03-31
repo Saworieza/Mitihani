@@ -1,0 +1,38 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Mtihani
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  %body.container-fluid
+    %nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container-fluid
+        / <a class="navbar-brand" href="#">Navbar</a>
+        %button.navbar-toggler{"aria-controls" => "navbarSupportedContent", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarSupportedContent", "data-bs-toggle" => "collapse", :type => "button"}
+          %span.navbar-toggler-icon
+        #navbarSupportedContent.collapse.navbar-collapse
+          %ul.navbar-nav.me-auto.mb-2.mb-lg-0
+            %li.nav-item
+              = link_to 'Home', root_path, class: "nav-link active"
+            %li.nav-item
+              = link_to 'Year', years_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Year', years_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Term', terms_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Classes', classrooms_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Streams', streams_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Students', students_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Subjects', subjects_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Results', results_path, class: "nav-link"
+            %li.nav-item
+              = link_to 'Marks', marks_path, class: "nav-link"
+    = yield
