@@ -65,6 +65,6 @@ class ResultsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def result_params
-      params.require(:result).permit(:stream_id, :subject_id, :exam_id, marks_attributes: [:id, :mark])
+      params.require(:result).permit(:stream_id, :subject_id, :student_id, :exam_id, marks_attributes: [:id, :mark])
     end
 end
