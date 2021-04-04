@@ -1,5 +1,26 @@
-%h1 Home#index
-%p Find me in app/views/home/index.html.haml
+%div
+    Academic Years 
+    = @years.all.count 
+    %h3 Welcome - MsingiEdu | Admin
+    %div.container
+        %div.row
+            %div.col-lg-3.col-md-6.col-sm-6.card
+                %a.white-box.single-summery
+                    %h4.display-5 Students
+                    %p Student Data Here
+            %div.col-lg-3.col-md-6.col-sm-6.card
+                %h4.display-5 Teachers
+                %p Teacher Data Here
+            %div.col-lg-3.col-md-6.col-sm-6.card
+                %h4.display-5 Parents
+                %p Parent Data Here
+            %div.col-lg-3.col-md-6.col-sm-6.card
+                %h4.display-5 The Staff
+                %p Staff Data Here
+
+
+
+
 %div.col-4
     %canvas#myChart{:height => "200", :width => "400"}
     :javascript

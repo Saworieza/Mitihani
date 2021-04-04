@@ -13,3 +13,36 @@
 
  */
  @import "bootstrap";
+ body{
+     background: -webkit-linear-gradient(90deg, #7c32ff 0%, #c738d8 51%, #7c32ff 100%);
+     background-image:url(https://demo.infixdev.com/public/backEnd/img/body-bg.jpg);
+     line-height: 24px;
+     font-size: 13px;
+     font-family: "Poppins", sans-serif;
+     font-weight: 400;
+     color: #828bb2;
+ }
+ a{
+    text-decoration: none !important;
+ }
+ .whitebox.single-summery{
+    padding: 22px 20px;
+    position: relative;
+    transition: all 0.4s ease 0s;
+    margin-top: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 10px 15px rgb(236, 208, 244 / 30%);
+ }
+ .bg-light{
+     background-color:transparent !important;
+ }
+ .card{
+    width:240px !important;
+    height: 100px !important;
+    background-color: white;
+}
+.card:hover {
+    background: url(/assets/summery-bg1.png) no-repeat center;
+    top: 4px;
+}

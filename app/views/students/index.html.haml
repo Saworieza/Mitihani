@@ -1,5 +1,6 @@
 %h1 Listing students
 = link_to 'New Student', new_student_path
+= @students.all.count
 
 %table.table.table-striped
   %thead

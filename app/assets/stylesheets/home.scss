@@ -1,3 +1,12 @@
 // Place all the styles related to the Home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.card{
+    width:240px !important;
+    height: 100px !important;
+    background: url(/assets/summery-bg1.png) no-repeat center;
+    background-color: red !important;
+}
+.card:hover:before {
+    top: 8px;
+}
