@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_01_064102) do
+ActiveRecord::Schema.define(version: 2021_04_05_060426) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -27,6 +27,19 @@ ActiveRecord::Schema.define(version: 2021_04_01_064102) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["term_id"], name: "index_exams_on_term_id"
+  end
+
+  create_table "fees", force: :cascade do |t|
+    t.string "package"
+    t.decimal "amount", precision: 8, scale: 2
+    t.integer "stream_id"
+    t.integer "year_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["stream_id"], name: "index_fees_on_stream_id"
+    t.index ["subject_id"], name: "index_fees_on_subject_id"
+    t.index ["year_id"], name: "index_fees_on_year_id"
   end
 
   create_table "marks", force: :cascade do |t|

@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Package:
+  = @fee.package
+%p
+  %b Amount:
+  = @fee.amount
+%p
+  %b Stream:
+  = @fee.stream
+%p
+  %b Year:
+  = @fee.year
+%p
+  %b Subject:
+  = @fee.subject
+
+= link_to 'Edit', edit_fee_path(@fee)
+\|
+= link_to 'Back', fees_path

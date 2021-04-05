@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :fees
   resources :marks
   resources :results
   resources :exams

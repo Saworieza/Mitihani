@@ -1,0 +1,30 @@
+= form_for @fee do |f|
+  - if @fee.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@fee.errors.count, "error")} prohibited this fee from being saved:"
+      %ul
+        - @fee.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :package
+    = f.text_field :package
+  .field
+    = f.label :year
+    = f.collection_select :year_id, Year.all, :id, :year, include_blank: true
+    -# = f.text_field :year
+  .field
+    -# Should be able to select multiple streams with same fee
+    = f.label :stream
+    = f.collection_select :stream_id, Stream.all, :id, :full_name, include_blank: true
+    -# = f.text_field :stream
+  .field
+    = f.label :amount
+    = f.text_field :amount
+  .field
+    -# not exactly necessary because of stream option above but is necessary select multiple subjects
+    = f.label :subjects
+    = f.collection_select :subject_id, Subject.all, :id, :name, include_blank: true
+    -# = f.text_field :subject
+  .actions
+    = f.submit 'Save'

@@ -1,0 +1,29 @@
+%h1 Listing fees
+
+%table
+  %thead
+    %tr
+      %th Package
+      %th Amount
+      %th Stream
+      %th Year
+      %th Subject
+      %th
+      %th
+      %th
+
+  %tbody
+    - @fees.each do |fee|
+      %tr
+        %td= fee.package
+        %td= fee.amount
+        %td= fee.stream
+        %td= fee.year
+        %td= fee.subject
+        %td= link_to 'Show', fee
+        %td= link_to 'Edit', edit_fee_path(fee)
+        %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Fee', new_fee_path

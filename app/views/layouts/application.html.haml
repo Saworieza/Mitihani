@@ -23,6 +23,13 @@
               = link_to 'Year', years_path, class: "nav-link"
             %li.nav-item
               = link_to 'Term', terms_path, class: "nav-link"
+            %li.nav-item.dropdown
+              %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                Fees
+              .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+                = link_to 'Fees', fees_path, class: "dropdown-item"
+                .dropdown-divider
+                = link_to 'Fees', fees_path, class: "dropdown-item"
             %li.nav-item
               = link_to 'Classes', classrooms_path, class: "nav-link"
             %li.nav-item
