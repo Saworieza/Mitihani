@@ -8,13 +8,13 @@
   = @fee.amount
 %p
   %b Stream:
-  = @fee.stream
+  = @fee.stream.full_name
 %p
   %b Year:
-  = @fee.year
+  = @fee.year.year
 %p
   %b Subject:
-  = @fee.subject
+  = @fee.subject.name
 
 = link_to 'Edit', edit_fee_path(@fee)
 \|

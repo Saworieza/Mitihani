@@ -4,9 +4,9 @@
   %thead
     %tr
       %th Package
-      %th Amount
       %th Stream
       %th Year
+      %th Amount
       %th Subject
       %th
       %th
@@ -16,10 +16,10 @@
     - @fees.each do |fee|
       %tr
         %td= fee.package
+        %td= fee.stream.full_name
+        %td= fee.year.year
         %td= fee.amount
-        %td= fee.stream
-        %td= fee.year
-        %td= fee.subject
+        %td= fee.subject.name
         %td= link_to 'Show', fee
         %td= link_to 'Edit', edit_fee_path(fee)
         %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }

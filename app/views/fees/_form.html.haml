@@ -10,6 +10,7 @@
     = f.label :package
     = f.text_field :package
   .field
+    -#unnecessary because of the year provision in stream name
     = f.label :year
     = f.collection_select :year_id, Year.all, :id, :year, include_blank: true
     -# = f.text_field :year
