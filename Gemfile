@@ -12,6 +12,7 @@ gem 'puma', '~> 3.11'
 gem 'sass-rails', '~> 5.0'
 gem 'bootstrap'
 gem 'jquery-rails'
+gem 'jquery-ui-rails' 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
@@ -40,6 +41,11 @@ gem 'haml'
 gem "haml-rails", "~> 2.0" #generate haml 
 gem "chartkick"
 gem 'chart-js-rails'
+
+# inline editing
+# gem 'hotwire-rails' -#works with rails 6
+gem "best_in_place"
+gem 'jquery-datatables'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

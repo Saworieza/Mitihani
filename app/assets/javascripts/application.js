@@ -11,6 +11,10 @@
 // about supported directives.
 //
 //= require jquery3
+//= require best_in_place
+
+//= require jquery-ui
+//= require best_in_place.jquery-ui
 //= require popper
 //= require bootstrap
 //= require rails-ujs
@@ -19,4 +23,9 @@
 //= require Chart.bundle
 //= requre chartkick
 //= require_tree .
+
+$(document).ready(function() {
+    /* Activating Best In Place */
+    jQuery(".best_in_place").best_in_place();
+});
 
