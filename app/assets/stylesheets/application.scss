@@ -10,11 +10,12 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
-
  */
  @import "bootstrap";
+//  @import "jquery-ui";
+
  body{
-     background: -webkit-linear-gradient(90deg, #7c32ff 0%, #c738d8 51%, #7c32ff 100%);
+     background: linear-gradient(90deg, #7c32ff 0%, #c738d8 51%, #7c32ff 100%);
      background-image:url(https://demo.infixdev.com/public/backEnd/img/body-bg.jpg);
      line-height: 24px;
      font-size: 13px;

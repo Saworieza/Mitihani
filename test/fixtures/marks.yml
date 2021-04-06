@@ -1,9 +1,11 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  mark: MyString
+  mark: 1
+  student: one
   result: one
 
 two:
-  mark: MyString
+  mark: 1
+  student: two
   result: two

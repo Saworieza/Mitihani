@@ -1,24 +1,27 @@
-%p#notice= notice
+%div.row
+  %p#notice= notice
+  %div.col-lg-5
+    %p
+      %b Classroom:
+      = @student.classroom.name
+      = @student.classroom.year.year
+    %p
+      %b Stream:
+      = @student.stream.name
+    %p
+      %b Adm no:
+      = @student.adm_no
+    %p
+      %b First name:
+      = @student.first_name
+    %p
+      %b Last name:
+      = @student.last_name
 
-%p
-  %b Classroom:
-  = @student.classroom.name
-  = @student.classroom.year.year
-%p
-  %b Stream:
-  = @student.stream.name
-%p
-  %b Adm no:
-  = @student.adm_no
-%p
-  %b First name:
-  = @student.first_name
-%p
-  %b Last name:
-  = @student.last_name
-
-= link_to 'Edit', edit_student_path(@student)
-\|
-= link_to 'Back', students_path
-\|
-= link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
+    = link_to 'Edit', edit_student_path(@student)
+    \|
+    = link_to 'Back', students_path
+    \|
+    = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
+  %div.col-lg-4
+  = @student.mark_ids

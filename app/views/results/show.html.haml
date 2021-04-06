@@ -15,17 +15,16 @@
 %table.table.table-striped
   %thead
     %tr
-      %th Adm no
       %th Full Name
       %th Marks
       %th 
 
   %tbody
-    - @result.stream.students.each do |student|
+    - @result.marks.each do |mark|
       %tr
-        %td= link_to student.adm_no, student
-        %td= "#{student.first_name} #{student.last_name}"
+        %td= link_to mark.student.stud_name, student_path
         -# %td= mark.mark
+        %td= best_in_place mark, :mark, path: result_path(@result.id), type: :input, param: "result[mark_attributes][id]=#{mark.id}&result[mark_attributes]" 
 
 = link_to 'Edit', edit_result_path(@result)
 \|

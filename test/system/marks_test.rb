@@ -16,6 +16,7 @@ class MarksTest < ApplicationSystemTestCase
 
     fill_in "Mark", with: @mark.mark
     fill_in "Result", with: @mark.result_id
+    fill_in "Student", with: @mark.student_id
     click_on "Create Mark"
 
     assert_text "Mark was successfully created"
@@ -28,6 +29,7 @@ class MarksTest < ApplicationSystemTestCase
 
     fill_in "Mark", with: @mark.mark
     fill_in "Result", with: @mark.result_id
+    fill_in "Student", with: @mark.student_id
     click_on "Update Mark"
 
     assert_text "Mark was successfully updated"

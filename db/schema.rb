@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_05_060426) do
+ActiveRecord::Schema.define(version: 2021_04_06_043026) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -43,11 +43,25 @@ ActiveRecord::Schema.define(version: 2021_04_05_060426) do
   end
 
   create_table "marks", force: :cascade do |t|
-    t.string "mark"
+    t.integer "mark"
+    t.integer "student_id"
     t.integer "result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["result_id"], name: "index_marks_on_result_id"
+    t.index ["student_id"], name: "index_marks_on_student_id"
+  end
+
+  create_table "payments", force: :cascade do |t|
+    t.string "amount"
+    t.date "date"
+    t.string "method"
+    t.integer "student_id"
+    t.integer "fee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fee_id"], name: "index_payments_on_fee_id"
+    t.index ["student_id"], name: "index_payments_on_student_id"
   end
 
   create_table "results", force: :cascade do |t|
@@ -56,7 +70,6 @@ ActiveRecord::Schema.define(version: 2021_04_05_060426) do
     t.integer "exam_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "student_id"
     t.index ["exam_id"], name: "index_results_on_exam_id"
     t.index ["stream_id"], name: "index_results_on_stream_id"
     t.index ["subject_id"], name: "index_results_on_subject_id"
