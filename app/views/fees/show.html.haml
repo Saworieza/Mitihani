@@ -14,6 +14,7 @@
     = @fee.year.year
     %br
     %b Total Fees 
+    -# = @sum_gok
     = @fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)
     %br
     %b Voteheads 

@@ -7,6 +7,7 @@ class Fee < ApplicationRecord
   accepts_nested_attributes_for :voteheads, reject_if: :all_blank, allow_destroy: true
 
   def sum_gok
-    self.voteheads.sum(:GOK)
+    self.voteheads.sum(:parent)
+    # self.voteheads.sum(:GOK) + self.voteheads.sum(:parent)
   end
 end

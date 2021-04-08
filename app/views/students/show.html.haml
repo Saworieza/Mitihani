@@ -23,5 +23,24 @@
     = link_to 'Back', students_path
     \|
     = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
-  %div.col-lg-4
-  -# = @student.mark_ids
+  %div.col-lg-5
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Fee Package
+          %th Stream
+          %th AC/Year
+          %th Amount
+          %th Paid
+          %th
+
+      %tbody
+        - @student.stream.fees.each do |fee|
+          %tr
+            %td= link_to fee.package, fee
+            %td= link_to fee.stream.full_name, stream_path
+            %td= fee.year.year
+            %td= fee.amount
+            %td
+            %td
+    

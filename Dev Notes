@@ -1,10 +1,25 @@
 Cataloging to do list here
 
 add purple theme - see themes folder
-
+---------------------------
 s = Stream.first
 s.results.find(7).marks.find(1) : this gies you a specific mark and a specific student
 
 s = Student.first
-s.marks gives you that students marks(tied to result)
-s.marks.find(1).result.exam finds the particular exam
+s.marks | gives you that students marks(tied to result)
+s.marks.find(1).result.exam | finds the particular exam
+
+----------------------------
+f = Fee.find(2) finds a specific fee
+f.stream.students.find(2) | finds a specific student paying that fee. now to reverse it
+
+s = Student.find(2).
+s.stream.fees | finds a students fees
+s.stream.fees.find(2).voteheads.ids finds all votehead ids
+
+Design Promotions so that a student can belong to more than one class but never within the same year
+
+Please note that decimal data format is storing your stuff in decimal e format
+
+
+
