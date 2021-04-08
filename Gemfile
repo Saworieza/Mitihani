@@ -41,6 +41,7 @@ gem 'haml'
 gem "haml-rails", "~> 2.0" #generate haml 
 gem "chartkick"
 gem 'chart-js-rails'
+gem 'cocoon'
 
 # inline editing
 # gem 'hotwire-rails' -#works with rails 6

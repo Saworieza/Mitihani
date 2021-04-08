@@ -22,6 +22,7 @@
 //= require turbolinks
 //= require Chart.bundle
 //= requre chartkick
+//= require cocoon
 //= require_tree .
 
 $(document).ready(function() {

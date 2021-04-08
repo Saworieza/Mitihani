@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_06_043026) do
+ActiveRecord::Schema.define(version: 2021_04_08_091546) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -109,6 +109,16 @@ ActiveRecord::Schema.define(version: 2021_04_06_043026) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["year_id"], name: "index_terms_on_year_id"
+  end
+
+  create_table "voteheads", force: :cascade do |t|
+    t.string "votehead"
+    t.decimal "GOK"
+    t.decimal "parent"
+    t.integer "fee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fee_id"], name: "index_voteheads_on_fee_id"
   end
 
   create_table "years", force: :cascade do |t|

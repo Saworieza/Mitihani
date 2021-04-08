@@ -27,5 +27,12 @@
     = f.label :subjects
     = f.collection_select :subject_id, Subject.all, :id, :name, include_blank: true
     -# = f.text_field :subject
+  %h3 Voteheads 
+  #voteheads
+    = f.fields_for :voteheads do |votehead|
+      = render 'votehead_fields', f: votehead
+    .links 
+      = link_to_add_association 'add votehead', f, :voteheads
+
   .actions
     = f.submit 'Save'

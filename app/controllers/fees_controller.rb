@@ -64,6 +64,6 @@ class FeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fee_params
-      params.require(:fee).permit(:package, :amount, :stream_id, :year_id, :subject_id)
+      params.require(:fee).permit(:package, :amount, :stream_id, :year_id, :subject_id, voteheads_attributes: [:id, :votehead, :GOK, :parent, :__destroy])
     end
 end
