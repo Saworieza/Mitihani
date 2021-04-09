@@ -63,7 +63,7 @@
           %tr
             %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
-            %td= student.fee_amount.inspect
+            %td= student.stream.fee_ids
 
 
   
