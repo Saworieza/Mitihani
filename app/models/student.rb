@@ -9,7 +9,7 @@ class Student < ApplicationRecord
   	"#{adm_no}: #{first_name} #{last_name}"
   end
 
-  def fee_amount(:id)
-    student.stream.fees.(:id).amount
-  end
+  # def fee_amount(:id)
+  #   student.stream.fees.(:id).amount
+  # end
 end
