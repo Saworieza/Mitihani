@@ -1,6 +1,6 @@
 %div.row
   %p#notice= notice
-  %div.col-lg-5
+  %div.col-lg-4
     %p
       %b Classroom:
       = @student.classroom.name
@@ -23,7 +23,7 @@
     = link_to 'Back', students_path
     \|
     = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
-  %div.col-lg-5
+  %div.col-lg-4
     %table.table.table-striped
       %thead
         %tr
@@ -40,7 +40,33 @@
             %td= link_to fee.package, fee
             %td= link_to fee.stream.full_name, stream_path
             %td= fee.year.year
-            %td= fee.amount
+            %td= fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent)
             %td
             %td
-    
+  
+            -# %td= fee.stream.student.payments.sum(:amount)
+  %div.col-lg-4
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Fee Package
+          %th Amount
+          %th Method
+          %th Date 
+          %th 
+          %th
+
+      %tbody
+        %tr
+          %td Total Payments
+          %td= @student.payments.sum(:amount)
+        - @student.payments.each do |payment|
+          %tr
+            %td= payment.fee.package
+            %td= payment.amount
+            %td= payment.method
+            %td= payment.date
+            %td
+            %td
+
+

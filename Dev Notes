@@ -16,10 +16,16 @@ f.stream.students.find(2) | finds a specific student paying that fee. now to rev
 s = Student.find(2).
 s.stream.fees | finds a students fees
 s.stream.fees.find(2).voteheads.ids finds all votehead ids
+s.stream.fees.find(1).amount finds the amount of fees that the student should pay. meaning that a students balances can be calculated from this
+reverse it in fee to calculate balance
 
 Design Promotions so that a student can belong to more than one class but never within the same year
 
 Please note that decimal data format is storing your stuff in decimal e format
 
+---------------------------------------
+
+f = Fee.first
+f.payments.find(1).student finds a student who made a payment from fee angle. now reverse that to find out what fee the student paid for 
 
 

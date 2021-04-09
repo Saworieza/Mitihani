@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_091546) do
+ActiveRecord::Schema.define(version: 2021_04_08_175558) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -53,9 +53,9 @@ ActiveRecord::Schema.define(version: 2021_04_08_091546) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string "amount"
-    t.date "date"
+    t.decimal "amount"
     t.string "method"
+    t.date "date"
     t.integer "student_id"
     t.integer "fee_id"
     t.datetime "created_at", null: false

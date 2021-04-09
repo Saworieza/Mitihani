@@ -13,7 +13,7 @@
   %tbody
     - @results.each do |result|
       %tr
-        %td= link_to "#{result.stream.classroom.name} #{result.stream.name}, #{result.stream.classroom.year.year}", result
+        %td= link_to result.stream.full_name, result
         %td= result.subject.name  
         %td= result.exam.name
 

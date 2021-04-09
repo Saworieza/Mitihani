@@ -2,8 +2,7 @@
 
 %p
   %b Classroom:
-  ="#{@result.stream.classroom.name} #{@result.stream.name}, #{@result.stream.classroom.year.year}"
-  / = @result.stream
+  = link_to @result.stream.full_name, stream_path
 %p
   %b Exam:
   = @result.exam.exam_name

@@ -1,13 +1,13 @@
 %h1 Listing payments
 
-%table
+%table.table.table-striped
   %thead
     %tr
-      %th Amount
-      %th Date
-      %th Method
       %th Student
       %th Fee
+      %th Amount
+      %th Method
+      %th Date
       %th
       %th
       %th
@@ -15,11 +15,11 @@
   %tbody
     - @payments.each do |payment|
       %tr
+        %td= payment.student.stud_name
+        %td= payment.fee.package
         %td= payment.amount
-        %td= payment.date
         %td= payment.method
-        %td= payment.student
-        %td= payment.fee
+        %td= payment.date
         %td= link_to 'Show', payment
         %td= link_to 'Edit', edit_payment_path(payment)
         %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
