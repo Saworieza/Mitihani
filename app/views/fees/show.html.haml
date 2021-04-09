@@ -53,18 +53,17 @@
     %table.table.table-striped
       %thead
         %tr
-          %th Adm no
-          %th Full Name
+          %th Student Details
           %th Paid
+          -# %th Paid
           %th Balances
 
       %tbody
         - @fee.stream.students.each do |student|
           %tr
-            %td= link_to student.adm_no, student
-            %td= "#{student.first_name} #{student.last_name}"
+            %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
-            %td 7000
-            -# %td= student.stream.fees.self.amount
+            %td= student.fee_amount.inspect
+
 
   

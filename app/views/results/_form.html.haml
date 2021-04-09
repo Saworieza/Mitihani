@@ -18,7 +18,6 @@
     = f.label :exam
     = f.collection_select :exam_id, Exam.all, :id, :exam_name, include_blank: true
     / = f.text_field :exams
-
   %hr 
   / using grouped collection select
   -# .field

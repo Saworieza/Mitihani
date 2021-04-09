@@ -8,6 +8,7 @@ class FeesController < ApplicationController
 
   # GET /fees/1 or /fees/1.json
   def show
+    @fee = Fee.find(params[:id])
   end
 
   # GET /fees/new
