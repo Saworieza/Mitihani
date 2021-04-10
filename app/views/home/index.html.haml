@@ -7,7 +7,8 @@
             %div.col-lg-3.col-md-6.col-sm-6.card
                 %a.white-box.single-summery
                     %h4.display-5 Students
-                    %p Student Data Here
+                    %p Total Registered Students
+                    = link_to @students.all.count, students_path
             %div.col-lg-3.col-md-6.col-sm-6.card
                 %h4.display-5 Teachers
                 %p Teacher Data Here

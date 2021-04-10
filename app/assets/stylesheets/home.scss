@@ -5,8 +5,14 @@
     width:240px !important;
     height: 100px !important;
     background: url(/assets/summery-bg1.png) no-repeat center;
+    background-size: 100% 100%;
     background-color: red !important;
 }
-.card:hover:before {
-    top: 8px;
+.card:hover{
+    top: 5px;
+    box-shadow: 0px 10px 30px rgb(108 39 255 / 30%);
+    background-size: 100% 100%;
+    padding: 22px 20px;
+    position: relative;
+    transition: all 0.4s ease 0s;
 }

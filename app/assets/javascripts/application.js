@@ -30,3 +30,12 @@ $(document).ready(function() {
     jQuery(".best_in_place").best_in_place();
 });
 
+
+document.querySelector('.primary-btn').onmousemove = (e) => {
+    const x = e.pageX - e.target.offsetLeft
+    const y = e.pageY - e.target.offsetTop
+    e.target.style.setProperty('--x', `${ x }px`)
+    e.target.style.setProperty('--y', `${ y }px`)
+}
+
+
