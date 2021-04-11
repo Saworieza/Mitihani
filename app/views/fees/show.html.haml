@@ -31,8 +31,7 @@
         %tr
           %th Votehead
           %th G.O.K
-          %th Parent
-          %th Total
+          %th Parent 
 
       %tbody
         - @fee.voteheads.each do |votehead|
@@ -54,7 +53,7 @@
         %tr
           %th Student Details
           %th Paid
-          -# %th Paid
+          %th Paid
           %th Balances
 
       %tbody
@@ -62,6 +61,8 @@
           %tr
             %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
+            %td= student.fees.sum(:amount)
+            %td= student.fee.fin
             %td= student.stream.fee_ids
 
 

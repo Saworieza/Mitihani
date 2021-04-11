@@ -9,7 +9,11 @@ class Student < ApplicationRecord
   	"#{adm_no}: #{first_name} #{last_name}"
   end
 
-  # def fee_amount(:id)
-  #   student.stream.fees.(:id).amount
-  # end
+  def fee_amount
+    fee.amount
+  end
+
+  def fee_amount=(id)
+    self.fee = Fee.find_by_id(:id) if id.present?
+  end
 end
