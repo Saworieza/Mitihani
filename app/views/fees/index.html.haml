@@ -1,5 +1,5 @@
 %h1 Fee Packages
-= link_to 'New Fee', new_fee_path, class: "primary-btn small"
+= link_to 'New Fee Package', new_fee_path, class: "primary-btn small"
 %div.row
   %div.col-lg-6
     %table.table.table-striped
@@ -9,6 +9,8 @@
           %th Stream
           %th Year
           %th Amount
+          %th Payments
+          %th Balances
 
       %tbody
         - @fees.each do |fee|
@@ -17,6 +19,8 @@
             %td= fee.stream.full_name
             %td= fee.year.year
             %td= fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent)
+            %td= fee.payments.sum(:amount)
+            %td= ((fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent))* fee.stream.students.count) - fee.payments.sum(:amount)
        
 %br
 

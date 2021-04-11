@@ -62,7 +62,6 @@
         %tr
           %td Total Payments
           %td= @student.payments.sum(:amount)
-          -# %td= @student.fee.payments.sum[amount]
         - @student.payments.group_by(&:fee).each do |fee, payment|
           %tr
             = fee.package
