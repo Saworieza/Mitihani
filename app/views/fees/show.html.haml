@@ -53,7 +53,7 @@
         %tr
           %th Student Details
           %th Paid
-          %th Paid
+          %th Paid2
           %th Balances
 
       %tbody
@@ -61,9 +61,10 @@
           %tr
             %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
-            %td= student.fees.sum(:amount)
-            %td= student.fee.fin
-            %td= student.stream.fee_ids
+            %td= student.stream.fees.sum(:amount)
+            %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
+            -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
+            -# %td= student.stream.fee_ids
 
 
   

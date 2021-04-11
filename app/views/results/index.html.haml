@@ -11,11 +11,14 @@
       %th
 
   %tbody
-    - @results.each do |result|
+    - @results.group_by(&:stream).each do |stream, result|
       %tr
-        %td= link_to result.stream.full_name, result
-        %td= result.subject.name  
-        %td= result.exam.name
+        = stream.full_name
+        -result.each do |result|
+          %tr
+            %td= link_to result.stream.full_name, result
+            %td= result.subject.name  
+            %td= result.exam.name
 
 %br
 

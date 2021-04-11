@@ -8,6 +8,7 @@ class StudentsController < ApplicationController
 
   # GET /students/1 or /students/1.json
   def show
+    # @payment_groups = @student.group_by { |st| st.payment.fee.package }
   end
 
   # GET /students/new

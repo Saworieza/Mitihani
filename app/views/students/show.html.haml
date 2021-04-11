@@ -1,6 +1,6 @@
 %div.row
   %p#notice= notice
-  %div.col-lg-4
+  %div.col-lg-3
     %p
       %b Classroom:
       = @student.classroom.name
@@ -24,6 +24,7 @@
     \|
     = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
   %div.col-lg-4
+    %h5 Yearly Fee & Balance
     %table.table.table-striped
       %thead
         %tr
@@ -45,7 +46,8 @@
             %td
   
             -# %td= fee.stream.student.payments.sum(:amount)
-  %div.col-lg-4
+  %div.col-lg-5
+    %h5 Grouping Experiment
     %table.table.table-striped
       %thead
         %tr
@@ -60,13 +62,17 @@
         %tr
           %td Total Payments
           %td= @student.payments.sum(:amount)
-        - @student.payments.each do |payment|
+          -# %td= @student.fee.payments.sum[amount]
+        - @student.payments.group_by(&:fee).each do |fee, payment|
           %tr
-            %td= payment.fee.package
-            %td= payment.amount
-            %td= payment.method
-            %td= payment.date
-            %td
-            %td
+            = fee.package
+            -payment.each do |payment|
+              %tr
+                %td= payment.fee.package
+                %td= payment.amount
+                %td= payment.method
+                %td= payment.date.strftime("%b %d, %y")
+                %td
+                %td
 
 

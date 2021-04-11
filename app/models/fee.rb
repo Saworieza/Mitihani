@@ -7,5 +7,4 @@ class Fee < ApplicationRecord
   has_many :voteheads, inverse_of: :fee
   accepts_nested_attributes_for :voteheads, reject_if: :all_blank, allow_destroy: true
   
-
 end
