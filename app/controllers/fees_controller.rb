@@ -8,7 +8,6 @@ class FeesController < ApplicationController
 
   # GET /fees/1 or /fees/1.json
   def show
-    @fee = Fee.find(params[:id])
   end
 
   # GET /fees/new
@@ -65,6 +64,6 @@ class FeesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def fee_params
-      params.require(:fee).permit(:package, :amount, :stream_id, :year_id, :subject_id, voteheads_attributes: [:id, :votehead, :GOK, :parent, :__destroy])
+      params.require(:fee).permit(:package, :year_id, :classroom_id, :stream_id)
     end
 end

@@ -1,20 +1,17 @@
 %p#notice= notice
 
 %p
-  %b Fee:
-  = @payment.fee.package
-%p
-  %b Student:
-  = @payment.student.stud_name
-%p
-  %b Payment Date:
-  = @payment.date
-%p
   %b Amount:
   = @payment.amount
 %p
   %b Method:
   = @payment.method
+%p
+  %b Fee:
+  = @payment.fee
+%p
+  %b Student:
+  = @payment.student
 
 = link_to 'Edit', edit_payment_path(@payment)
 \|

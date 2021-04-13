@@ -3,13 +3,11 @@
 one:
   amount: 9.99
   method: MyString
-  date: 2021-04-08
-  student: one
   fee: one
+  student: one
 
 two:
   amount: 9.99
   method: MyString
-  date: 2021-04-08
-  student: two
   fee: two
+  student: two

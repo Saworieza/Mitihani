@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_08_175558) do
+ActiveRecord::Schema.define(version: 2021_04_12_083256) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -31,14 +31,13 @@ ActiveRecord::Schema.define(version: 2021_04_08_175558) do
 
   create_table "fees", force: :cascade do |t|
     t.string "package"
-    t.decimal "amount", precision: 8, scale: 2
-    t.integer "stream_id"
     t.integer "year_id"
-    t.integer "subject_id"
+    t.integer "classroom_id"
+    t.integer "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_fees_on_classroom_id"
     t.index ["stream_id"], name: "index_fees_on_stream_id"
-    t.index ["subject_id"], name: "index_fees_on_subject_id"
     t.index ["year_id"], name: "index_fees_on_year_id"
   end
 
@@ -55,9 +54,8 @@ ActiveRecord::Schema.define(version: 2021_04_08_175558) do
   create_table "payments", force: :cascade do |t|
     t.decimal "amount"
     t.string "method"
-    t.date "date"
-    t.integer "student_id"
     t.integer "fee_id"
+    t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fee_id"], name: "index_payments_on_fee_id"
@@ -91,6 +89,7 @@ ActiveRecord::Schema.define(version: 2021_04_08_175558) do
     t.integer "stream_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "fee_id"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
     t.index ["stream_id"], name: "index_students_on_stream_id"
   end
@@ -113,12 +112,10 @@ ActiveRecord::Schema.define(version: 2021_04_08_175558) do
 
   create_table "voteheads", force: :cascade do |t|
     t.string "votehead"
-    t.decimal "GOK"
+    t.decimal "gok"
     t.decimal "parent"
-    t.integer "fee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["fee_id"], name: "index_voteheads_on_fee_id"
   end
 
   create_table "years", force: :cascade do |t|

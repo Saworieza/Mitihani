@@ -14,10 +14,9 @@ class FeesTest < ApplicationSystemTestCase
     visit fees_url
     click_on "New Fee"
 
-    fill_in "Amount", with: @fee.amount
+    fill_in "Classroom", with: @fee.classroom_id
     fill_in "Package", with: @fee.package
     fill_in "Stream", with: @fee.stream_id
-    fill_in "Subject", with: @fee.subject_id
     fill_in "Year", with: @fee.year_id
     click_on "Create Fee"
 
@@ -29,10 +28,9 @@ class FeesTest < ApplicationSystemTestCase
     visit fees_url
     click_on "Edit", match: :first
 
-    fill_in "Amount", with: @fee.amount
+    fill_in "Classroom", with: @fee.classroom_id
     fill_in "Package", with: @fee.package
     fill_in "Stream", with: @fee.stream_id
-    fill_in "Subject", with: @fee.subject_id
     fill_in "Year", with: @fee.year_id
     click_on "Update Fee"
 

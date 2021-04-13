@@ -2,14 +2,12 @@
 
 one:
   package: MyString
-  amount: 9.99
-  stream: one
   year: one
-  subject: one
+  classroom: one
+  stream: one
 
 two:
   package: MyString
-  amount: 9.99
-  stream: two
   year: two
-  subject: two
+  classroom: two
+  stream: two

@@ -7,23 +7,16 @@
           %li= message
 
   .field
-    = f.label :fee
-    = f.collection_select :fee_id, Fee.all, :id, :package, include_blank: true
-    -# = f.text_field :fee
-  .field
-    = f.label :student
-    -# collect the students from fees or add year and class to fee name
-    = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true 
-    -# = f.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, multiple: true, include_blank: true
-    -# = f.text_field :student
-  .field
     = f.label :amount
     = f.text_field :amount
   .field
     = f.label :method
     = f.text_field :method
   .field
-    = f.label :date
-    = f.date_select :date
+    = f.label :fee
+    = f.text_field :fee
+  .field
+    = f.label :student
+    = f.text_field :student
   .actions
     = f.submit 'Save'

@@ -1,69 +1,18 @@
 %p#notice= notice
+
+%p
+  %b Package:
+  = @fee.package
+%p
+  %b Year:
+  = @fee.year
+%p
+  %b Classroom:
+  = @fee.classroom
+%p
+  %b Stream:
+  = @fee.stream
+
 = link_to 'Edit', edit_fee_path(@fee)
 \|
 = link_to 'Back', fees_path
-%div.row
-  %div.col-lg-4
-    %b Package:
-    = @fee.package
-    %br
-    %b Stream:
-    = @fee.stream.full_name
-    %br
-    %b Year:
-    = @fee.year.year
-    %br
-    %b Fee For Year
-    = @fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)
-    %br
-    %b Total Fees 
-    = (@fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)) * @fee.stream.students.count
-    %br
-    %b Total Payments
-    = @fee.payments.sum(:amount)
-    %br
-    %b Total Balances
-    = ((@fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent))* @fee.stream.students.count) - @fee.payments.sum(:amount)
-  
-  %div.col-lg-4
-    %b Voteheads 
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Votehead
-          %th G.O.K
-          %th Parent
-          %th Total
-
-      %tbody
-        - @fee.voteheads.each do |votehead|
-          %tr
-            %td= votehead.votehead
-            %td= votehead.GOK
-            %td= votehead.parent 
-            %td= votehead.GOK + votehead.parent
-        %tr{style:"background-color:red;"}    
-        %td Total Fees
-        %td= @fee.voteheads.sum(:GOK) 
-        %td= @fee.voteheads.sum(:parent) 
-        %td= @fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)
-
-  %div.col-lg-4
-    %b Students:
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Student Details
-          %th Paid
-          -# %th Paid
-          %th Balances
-
-      %tbody
-        - @fee.stream.students.each do |student|
-          %tr
-            %td= link_to student.stud_name, student
-            %td= student.payments.sum(:amount)
-            %td= student.stream.fee_ids
-
-
-  
