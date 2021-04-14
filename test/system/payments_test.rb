@@ -15,7 +15,6 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "New Payment"
 
     fill_in "Amount", with: @payment.amount
-    fill_in "Date", with: @payment.date
     fill_in "Fee", with: @payment.fee_id
     fill_in "Method", with: @payment.method
     fill_in "Student", with: @payment.student_id
@@ -30,7 +29,6 @@ class PaymentsTest < ApplicationSystemTestCase
     click_on "Edit", match: :first
 
     fill_in "Amount", with: @payment.amount
-    fill_in "Date", with: @payment.date
     fill_in "Fee", with: @payment.fee_id
     fill_in "Method", with: @payment.method
     fill_in "Student", with: @payment.student_id

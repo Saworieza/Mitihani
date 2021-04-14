@@ -2,12 +2,12 @@
 
 one:
   votehead: MyString
-  GOK: 9.99
+  gok: 9.99
   parent: 9.99
   fee: one
 
 two:
   votehead: MyString
-  GOK: 9.99
+  gok: 9.99
   parent: 9.99
   fee: two

@@ -1,3 +1,23 @@
+-# %p#notice= notice
+
+-# %p
+-#   %b Package:
+-#   = @fee.package
+-# %p
+-#   %b Year:
+-#   = @fee.year
+-# %p
+-#   %b Classroom:
+-#   = @fee.classroom
+-# %p
+-#   %b Stream:
+-#   = @fee.stream
+
+-# = link_to 'Edit', edit_fee_path(@fee)
+-# \|
+-# = link_to 'Back', fees_path
+
+
 %p#notice= notice
 = link_to 'Edit', edit_fee_path(@fee), class: "primary-btn small"
 = link_to 'Back', fees_path, class: "primary-btn back"
@@ -13,16 +33,16 @@
     = @fee.year.year
     %br
     %b Fee For Year
-    = @fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)
+    = @fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)
     %br
     %b Total Fees 
-    = (@fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)) * @fee.stream.students.count
+    = (@fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)) * @fee.stream.students.count
     %br
     %b Total Payments
     = @fee.payments.sum(:amount)
     %br
     %b Total Balances
-    = ((@fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent))* @fee.stream.students.count) - @fee.payments.sum(:amount)
+    = ((@fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent))* @fee.stream.students.count) - @fee.payments.sum(:amount)
   
   %div.col-lg-4
     %b Voteheads 
@@ -37,15 +57,15 @@
         - @fee.voteheads.each do |votehead|
           %tr
             %td= votehead.votehead
-            %td= votehead.GOK
+            %td= votehead.gok
             %td= votehead.parent 
-            %td= votehead.GOK + votehead.parent
+            %td= votehead.gok + votehead.parent
         %tr{style:"background-color:red;"}    
         %td Total Fees
-        %td= @fee.voteheads.sum(:GOK) 
+        %td= @fee.voteheads.sum(:gok) 
         %td= @fee.voteheads.sum(:parent) 
-        %td= @fee.voteheads.sum(:GOK) + @fee.voteheads.sum(:parent)
-
+        %td= @fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)
+ 
   %div.col-lg-4
     %b Students:
     %table.table.table-striped
@@ -55,12 +75,12 @@
           %th Paid
           %th Paid2
           %th Balances
-
       %tbody
         - @fee.stream.students.each do |student|
           %tr
             %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
+<<<<<<< HEAD
             %td= student.stream.fees.sum(:amount)
             %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
             -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
@@ -68,3 +88,8 @@
 
 
   
+=======
+            -# %td= student.stream.fees.
+            -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
+            -# %td= student.stream.fee_ids
+>>>>>>> newfee

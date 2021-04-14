@@ -17,7 +17,7 @@ class FeesControllerTest < ActionDispatch::IntegrationTest
 
   test "should create fee" do
     assert_difference('Fee.count') do
-      post fees_url, params: { fee: { amount: @fee.amount, package: @fee.package, stream_id: @fee.stream_id, subject_id: @fee.subject_id, year_id: @fee.year_id } }
+      post fees_url, params: { fee: { classroom_id: @fee.classroom_id, package: @fee.package, stream_id: @fee.stream_id, year_id: @fee.year_id } }
     end
 
     assert_redirected_to fee_url(Fee.last)
@@ -34,7 +34,7 @@ class FeesControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update fee" do
-    patch fee_url(@fee), params: { fee: { amount: @fee.amount, package: @fee.package, stream_id: @fee.stream_id, subject_id: @fee.subject_id, year_id: @fee.year_id } }
+    patch fee_url(@fee), params: { fee: { classroom_id: @fee.classroom_id, package: @fee.package, stream_id: @fee.stream_id, year_id: @fee.year_id } }
     assert_redirected_to fee_url(@fee)
   end
 

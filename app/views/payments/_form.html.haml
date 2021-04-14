@@ -9,21 +9,16 @@
   .field
     = f.label :fee
     = f.collection_select :fee_id, Fee.all, :id, :package, include_blank: true
-    -# = f.text_field :fee
   .field
     = f.label :student
-    -# collect the students from fees or add year and class to fee name
-    = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true 
-    -# = f.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, multiple: true, include_blank: true
-    -# = f.text_field :student
+    = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true
+    -# the below field does autocomplete search for students adm
+    -# = f.text_field :student_adm, data: {autocomplete_source: Student.order(:adm_no).map(&:adm_no)}
   .field
     = f.label :amount
     = f.text_field :amount
   .field
     = f.label :method
     = f.text_field :method
-  .field
-    = f.label :date
-    = f.date_select :date
   .actions
     = f.submit 'Save'
