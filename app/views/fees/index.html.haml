@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 %h1 Fee Packages
 = link_to 'New Fee Package', new_fee_path, class: "primary-btn small"
 %div.row
@@ -22,8 +21,7 @@
             %td= fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent)
             %td= fee.payments.sum(:amount)
             %td= ((fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent))* fee.stream.students.count) - fee.payments.sum(:amount)
-       
-=======
+
 %h1 Listing fees
 
 %table
@@ -48,7 +46,6 @@
         %td= link_to 'Edit', edit_fee_path(fee)
         %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }
 
->>>>>>> newfee
 %br
 
 = link_to 'New Fee', new_fee_path

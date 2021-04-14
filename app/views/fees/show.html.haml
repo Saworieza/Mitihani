@@ -60,6 +60,7 @@
             %td= votehead.gok
             %td= votehead.parent 
             %td= votehead.gok + votehead.parent
+        
         %tr{style:"background-color:red;"}    
         %td Total Fees
         %td= @fee.voteheads.sum(:gok) 
@@ -80,16 +81,11 @@
           %tr
             %td= link_to student.stud_name, student
             %td= student.payments.sum(:amount)
-<<<<<<< HEAD
-            %td= student.stream.fees.sum(:amount)
-            %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
-            -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
+            -# %td= student.stream.fees.sum(:amount)
+            -# %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
+            -# %td= student.stream.fee.voteheads.sum(:gok) + student.stream.fee.voteheads.sum(:parent)
             -# %td= student.stream.fee_ids
-
-
-  
-=======
             -# %td= student.stream.fees.
             -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
             -# %td= student.stream.fee_ids
->>>>>>> newfee
+
