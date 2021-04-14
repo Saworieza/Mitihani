@@ -28,4 +28,6 @@ Please note that decimal data format is storing your stuff in decimal e format
 f = Fee.first
 f.payments.find(1).student finds a student who made a payment from fee angle. now reverse that to find out what fee the student paid for 
 
-
+//****************  THOUGHT PROCESSES   ******************\\
+1. Ensure that is a student pays excess fees than the academic year theyre in.. the excess if forwarded into the next year
+2. that the excess fee does not add to the cost of total fees for an academic year

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_12_083256) do
+ActiveRecord::Schema.define(version: 2021_04_14_083255) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -114,8 +114,10 @@ ActiveRecord::Schema.define(version: 2021_04_12_083256) do
     t.string "votehead"
     t.decimal "gok"
     t.decimal "parent"
+    t.integer "fee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["fee_id"], name: "index_voteheads_on_fee_id"
   end
 
   create_table "years", force: :cascade do |t|

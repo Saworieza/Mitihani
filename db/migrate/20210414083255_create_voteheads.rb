@@ -4,6 +4,7 @@ class CreateVoteheads < ActiveRecord::Migration[5.2]
       t.string :votehead
       t.decimal :gok
       t.decimal :parent
+      t.references :fee, foreign_key: true
 
       t.timestamps
     end

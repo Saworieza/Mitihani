@@ -11,12 +11,23 @@
     = f.text_field :package
   .field
     = f.label :year
-    = f.text_field :year
+    = f.collection_select :year_id, Year.all, :id, :year, include_blank: true
+    -# = f.text_field :year
   .field
     = f.label :classroom
-    = f.text_field :classroom
+    = f.grouped_collection_select :classroom_id, Year.order(:year), :classrooms, :year, :id,  :name, include_blank: true
+    -# = f.text_field :classroom
   .field
     = f.label :stream
-    = f.text_field :stream
+    = f.grouped_collection_select :stream_id, Classroom.order(:name), :streams, :class_name, :id,  :name, include_blank: true
+    -# = f.text_field :stream
+  
+  %h3 Voteheads
+  #voteheads
+    = f.fields_for :voteheads do |votehead|
+      = render 'votehead_fields', f: votehead
+    .links 
+      = link_to_add_association 'add votehead', f, :voteheads
+      
   .actions
     = f.submit 'Save'

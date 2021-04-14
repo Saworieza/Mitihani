@@ -7,16 +7,18 @@
           %li= message
 
   .field
+    = f.label :fee
+    = f.collection_select :fee_id, Fee.all, :id, :package, include_blank: true
+  .field
+    = f.label :student
+    = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true
+    -# the below field does autocomplete search for students adm
+    -# = f.text_field :student_adm, data: {autocomplete_source: Student.order(:adm_no).map(&:adm_no)}
+  .field
     = f.label :amount
     = f.text_field :amount
   .field
     = f.label :method
     = f.text_field :method
-  .field
-    = f.label :fee
-    = f.text_field :fee
-  .field
-    = f.label :student
-    = f.text_field :student
   .actions
     = f.submit 'Save'

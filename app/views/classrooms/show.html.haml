@@ -1,29 +1,47 @@
-%p#notice= notice
+%div.row
+  %div.col-lg-3
+    %p#notice= notice
 
-%p
-  %b Year:
-  = @classroom.year.year
-%p
-  %b Name:
-  = @classroom.name
-%p
-  %b Number:
-  = @classroom.number
+    %p
+      %b Year:
+      = @classroom.year.year
+    %p
+      %b Name:
+      = @classroom.name
+    %p
+      %b Number:
+      = @classroom.number
+  
+  %div.col-lg-4
+    %h3 Fees
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Package
+          %th Fee Sum
+          %th Total Students
 
-%h3 Streams
-%table.table.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Classroom
-      %th Total Students
+      %tbody
+        - @classroom.fees.each do |fee|
+          %tr
+            %td= link_to fee.package, fee
+            -# %td= fee.votehead.votehead
 
-  %tbody
-    - @classroom.streams.each do |stream|
-      %tr
-        %td= link_to stream.name, stream
-        %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
-        %td= stream.students.count
+  %div.col-lg-5  
+    %h3 Streams
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Classroom
+          %th Total Students
+
+      %tbody
+        - @classroom.streams.each do |stream|
+          %tr
+            %td= link_to stream.name, stream
+            %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+            %td= stream.students.count
 
 = link_to 'Edit', edit_classroom_path(@classroom)
 \|
