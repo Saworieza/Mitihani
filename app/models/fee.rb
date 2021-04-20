@@ -10,4 +10,12 @@ class Fee < ApplicationRecord
   def gok_total
     self.voteheads.sum(:gok)
   end
+
+  def parent_total
+  	self.voteheads.sum(:parent)
+  end
+
+  def balances
+  	((gok_total + parent_total)* self.stream.students.count) - self.payments.sum(:amount)
+  end
 end

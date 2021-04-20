@@ -18,33 +18,33 @@
             %td= link_to fee.package, fee 
             %td= fee.stream.full_name
             %td= fee.year.year
-            %td= fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent)
+            %td= fee.gok_total + fee.parent_total
             %td= fee.payments.sum(:amount)
-            %td= ((fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent))* fee.stream.students.count) - fee.payments.sum(:amount)
+            %td= fee.balances
 
-%h1 Listing fees
+/ %h1 Listing fees
 
-%table
-  %thead
-    %tr
-      %th Package
-      %th Year
-      %th Classroom
-      %th Stream
-      %th
-      %th
-      %th
+/ %table
+/   %thead
+/     %tr
+/       %th Package
+/       %th Year
+/       %th Classroom
+/       %th Stream
+/       %th
+/       %th
+/       %th
 
-  %tbody
-    - @fees.each do |fee|
-      %tr
-        %td= fee.package
-        %td= fee.year
-        %td= fee.classroom
-        %td= fee.stream
-        %td= link_to 'Show', fee
-        %td= link_to 'Edit', edit_fee_path(fee)
-        %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }
+/   %tbody
+/     - @fees.each do |fee|
+/       %tr
+/         %td= fee.package
+/         %td= fee.year
+/         %td= fee.classroom
+/         %td= fee.stream
+/         %td= link_to 'Show', fee
+/         %td= link_to 'Edit', edit_fee_path(fee)
+/         %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
