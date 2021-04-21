@@ -1,14 +1,15 @@
 %h1 Fee Packages
 = link_to 'New Fee Package', new_fee_path, class: "primary-btn small"
 %div.row
-  %div.col-lg-6
+  %div.col-lg-7
     %table.table.table-striped
       %thead
         %tr
           %th Package
           %th Stream
           %th Year
-          %th Amount
+          %th Fee
+          %th Total Fees
           %th Payments
           %th Balances
 
@@ -18,9 +19,10 @@
             %td= link_to fee.package, fee 
             %td= fee.stream.full_name
             %td= fee.year.year
-            %td= fee.gok_total + fee.parent_total
-            %td= fee.payments.sum(:amount)
-            %td= fee.balances
+            %td= number_with_delimiter(fee.yearly_fee)
+            %td= number_with_delimiter(fee.total_fees) 
+            %td= number_with_delimiter(fee.payments.sum(:amount))
+            %td= number_with_delimiter(fee.balances)
 
 / %h1 Listing fees
 

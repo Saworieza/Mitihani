@@ -33,16 +33,16 @@
     = @fee.year.year
     %br
     %b Fee For Year
-    = @fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)
+    = number_with_delimiter(@fee.yearly_fee)
     %br
     %b Total Fees 
-    = (@fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)) * @fee.stream.students.count
+    = number_with_delimiter(@fee.total_fees)
     %br
     %b Total Payments
-    = @fee.payments.sum(:amount)
+    = number_with_delimiter(@fee.payments.sum(:amount))
     %br
     %b Total Balances
-    = ((@fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent))* @fee.stream.students.count) - @fee.payments.sum(:amount)
+    = number_with_delimiter(@fee.balances)
   
   %div.col-lg-4
     %b Voteheads 
@@ -57,15 +57,15 @@
         - @fee.voteheads.each do |votehead|
           %tr
             %td= votehead.votehead
-            %td= votehead.gok
-            %td= votehead.parent 
-            %td= votehead.gok + votehead.parent
+            %td= number_with_delimiter(votehead.gok)
+            %td= number_with_delimiter(votehead.parent) 
+            %td= number_with_delimiter(votehead.gok + votehead.parent)
         
-        %tr{style:"background-color:red;"}    
+        %tr.top-line    
         %td Total Fees
-        %td= @fee.voteheads.sum(:gok) 
-        %td= @fee.voteheads.sum(:parent) 
-        %td= @fee.voteheads.sum(:gok) + @fee.voteheads.sum(:parent)
+        %td= number_with_delimiter(@fee.gok_total) 
+        %td= number_with_delimiter(@fee.parent_total) 
+        %td= number_with_delimiter(@fee.yearly_fee)
  
   %div.col-lg-4
     %b Students:
@@ -80,7 +80,7 @@
         - @fee.stream.students.each do |student|
           %tr
             %td= link_to student.stud_name, student
-            %td= student.payments.sum(:amount)
+            %td= number_with_delimiter(student.stud_payments)
             -# %td= student.stream.fees.sum(:amount)
             -# %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
             -# %td= student.stream.fee.voteheads.sum(:gok) + student.stream.fee.voteheads.sum(:parent)

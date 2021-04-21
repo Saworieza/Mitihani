@@ -9,4 +9,8 @@ class Student < ApplicationRecord
   	"#{adm_no}: #{first_name} #{last_name}"
   end
 
+  def stud_payments
+    self.payments.sum(:amount)
+  end
+
 end
