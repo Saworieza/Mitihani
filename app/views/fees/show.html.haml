@@ -52,6 +52,7 @@
           %th Votehead
           %th G.O.K
           %th Parent 
+          %th Sub Total
 
       %tbody
         - @fee.voteheads.each do |votehead|
@@ -62,10 +63,10 @@
             %td= number_with_delimiter(votehead.gok + votehead.parent)
         
         %tr.top-line    
-        %td Total Fees
-        %td= number_with_delimiter(@fee.gok_total) 
-        %td= number_with_delimiter(@fee.parent_total) 
-        %td= number_with_delimiter(@fee.yearly_fee)
+        %td.font-weight-bold Total Fees
+        %td.font-weight-bold= number_with_delimiter(@fee.gok_total) 
+        %td.font-weight-bold= number_with_delimiter(@fee.parent_total) 
+        %td.font-weight-bold= number_with_delimiter(@fee.yearly_fee)
  
   %div.col-lg-4
     %b Students:
@@ -74,18 +75,11 @@
         %tr
           %th Student Details
           %th Paid
-          %th Paid2
-          %th Balances
+          %th Balance
       %tbody
         - @fee.stream.students.each do |student|
           %tr
             %td= link_to student.stud_name, student
             %td= number_with_delimiter(student.stud_payments)
-            -# %td= student.stream.fees.sum(:amount)
-            -# %td= student.stream.fees.sum(:amount) - student.payments.sum(:amount)
-            -# %td= student.stream.fee.voteheads.sum(:gok) + student.stream.fee.voteheads.sum(:parent)
-            -# %td= student.stream.fee_ids
-            -# %td= student.stream.fees.
-            -# %td= student.stream.fee.voteheads.sum(:GOK) + student.stream.fee.voteheads.sum(:parent)
-            -# %td= student.stream.fee_ids
+            %td= student.stream.fees.where(id: @fee.id).yearly_fee
 

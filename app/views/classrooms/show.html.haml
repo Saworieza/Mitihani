@@ -1,27 +1,57 @@
-<<<<<<< HEAD
 = link_to 'Edit', edit_classroom_path(@classroom), class: "primary-btn small"
 = link_to 'Back', classrooms_path, class: "primary-btn back"
 %div.row
-  %div.col-lg-2
-=======
-%div.row
-  %div.col-lg-3
->>>>>>> newfee
-    %p#notice= notice
+  %div.col-lg-4  
+    %h3 Class Sections
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Name
+          %th Classroom
+          %th Total Students
 
-    %p
-      %b Year:
-      = @classroom.year.year
-    %p
-      %b Name:
-      = @classroom.name
-    %p
-      %b Number:
-      = @classroom.number
-<<<<<<< HEAD
+      %tbody
+        - @classroom.streams.each do |stream|
+          %tr
+            %td= link_to stream.name, stream
+            %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+            %td= stream.students.count
+
+      %tbody
+        - @classroom.streams.each do |stream|
+          %tr
+            %td= link_to stream.name, stream
+            %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+            %td= stream.students.count
 
   %div.col-lg-4
-    %h3 Students
+    %h3 Fees
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Package
+          %th Section
+          %td Amount
+          -# %th Total Students
+
+      %tbody
+        - @classroom.fees.each do |fee|
+          %tr
+            %td= link_to fee.package, fee
+            %td= fee.stream.name
+            %td= number_with_delimiter(fee.yearly_fee)
+
+  %div.col-lg-4
+    %h3 All Students
+    %p 
+    %b
+      Academic Year :
+      = @classroom.year.year
+      \/ Class Name :
+      = @classroom.name
+      \/ Class Number :
+      = @classroom.number
+
     %table.table.table-striped
       %thead
         %tr
@@ -34,50 +64,9 @@
             %td= link_to student.stud_name, student
             %td= student.stream.name
   
-  %div.col-lg-4
-=======
   
-  %div.col-lg-4
-    %h3 Fees
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Package
-          %th Fee Sum
-          %th Total Students
 
-      %tbody
-        - @classroom.fees.each do |fee|
-          %tr
-            %td= link_to fee.package, fee
-            -# %td= fee.votehead.votehead
-
-  %div.col-lg-5  
->>>>>>> newfee
-    %h3 Streams
-    %table.table.table-striped
-      %thead
-        %tr
-          %th Name
-          %th Classroom
-          %th Total Students
-<<<<<<< HEAD
-=======
-
-      %tbody
-        - @classroom.streams.each do |stream|
-          %tr
-            %td= link_to stream.name, stream
-            %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
-            %td= stream.students.count
->>>>>>> newfee
-
-      %tbody
-        - @classroom.streams.each do |stream|
-          %tr
-            %td= link_to stream.name, stream
-            %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
-            %td= stream.students.count
+  
 
 
  

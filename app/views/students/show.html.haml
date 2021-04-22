@@ -2,21 +2,24 @@
   %p#notice= notice
   %div.col-lg-3
     %p
+      %b Student Details
+      = @student.stud_name
+    %p
       %b Classroom:
       = @student.classroom.name
       = @student.classroom.year.year
     %p
       %b Stream:
       = @student.stream.name
-    %p
-      %b Adm no:
-      = @student.adm_no
-    %p
-      %b First name:
-      = @student.first_name
-    %p
-      %b Last name:
-      = @student.last_name
+    -# %p
+    -#   %b Adm no:
+    -#   = @student.adm_no
+    -# %p
+    -#   %b First name:
+    -#   = @student.first_name
+    -# %p
+    -#   %b Last name:
+    -#   = @student.last_name
 
     = link_to 'Edit', edit_student_path(@student)
     \|
@@ -29,7 +32,7 @@
       %thead
         %tr
           %th Fee Package
-          %th Stream
+          -# %th Stream
           %th AC/Year
           %th Amount
           %th Paid
@@ -39,9 +42,9 @@
         - @student.stream.fees.each do |fee|
           %tr
             %td= link_to fee.package, fee
-            %td= link_to fee.stream.full_name, stream_path
+            -# %td= link_to fee.stream.full_name, stream_path
             %td= fee.year.year
-            %td= fee.voteheads.sum(:GOK) + fee.voteheads.sum(:parent)
+            %td= number_with_delimiter(fee.yearly_fee)
             %td
             %td
   
@@ -70,7 +73,7 @@
                 %td= payment.fee.package
                 %td= payment.amount
                 %td= payment.method
-                %td= payment.date.strftime("%b %d, %y")
+                -# %td= payment.date.strftime("%b %d, %y")
                 %td
                 %td
 
