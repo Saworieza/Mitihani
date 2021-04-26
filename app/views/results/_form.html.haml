@@ -38,7 +38,7 @@
       = f.fields_for :marks do |mark|
         %tr
           %td 
-            = mark.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, multiple: true, include_blank: true
+            = mark.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, include_blank: true
           %td 
             = mark.text_field :mark
         -# %hr 
