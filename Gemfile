@@ -43,6 +43,8 @@ gem "chartkick"
 gem 'chart-js-rails'
 gem 'cocoon'
 
+gem 'invoicing'
+
 # inline editing
 # gem 'hotwire-rails' -#works with rails 6
 gem "best_in_place"
