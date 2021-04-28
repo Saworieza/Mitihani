@@ -17,8 +17,4 @@ class Student < ApplicationRecord
     self.stream.fees(where)
   end
 
-  # sum fees paid by their groups
-  def fee_sum_groups
-    self.payments.sum(&:amount) 
-  end
 end

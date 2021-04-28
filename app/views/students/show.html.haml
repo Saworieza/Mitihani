@@ -36,7 +36,7 @@
           %th AC/Year
           %th Amount
           %th Paid
-          %th
+          %th Balance
 
       %tbody
         - @student.stream.fees.each do |fee|
@@ -45,9 +45,11 @@
             -# %td= link_to fee.stream.full_name, stream_path
             %td= fee.year.year
             %td= number_with_delimiter(fee.yearly_fee)
-            %td
-  
-            -# %td= fee.stream.student.payments.sum(:amount)
+            %td= number_with_delimiter(fee.fee_payment_sum)
+            %td= number_with_delimiter(fee.fee_balance)
+            -# - fee.payments.each do |payment|
+            -#   %td= payment.amount
+            
   %div.col-lg-5
     %h5 Fee Payments
     %b Total Payments OverTime : Kshs
@@ -69,8 +71,7 @@
           %tr
             -payments.each do |payment|
               %tr
-                -# %td= payment.fee.package
-                %td= number_with_delimiter(payment.amount)
+                %td= link_to number_with_delimiter(payment.amount), payment
                 %td= payment.method
                 -# %td= payment.date.strftime("%b %d, %y")
           %tr
@@ -78,6 +79,6 @@
             %td= number_with_delimiter(payments.sum(&:amount))
           %tr
             %td Fee Balance For Year
-            %td= fee.yearly_fee - payments.sum(&:amount)
+            %td= number_with_delimiter(fee.fee_balance)
 
 

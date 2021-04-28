@@ -27,7 +27,12 @@ class Fee < ApplicationRecord
   	(yearly_fee * self.stream.students.count) - self.payments.sum(:amount)
   end
   
-  def particular_fee
-    student.stream.fees.where(id: @fee.id).yearly_fee
+  def fee_payment_sum
+    self.payments.sum(:amount)
   end
+
+  def fee_balance
+    yearly_fee - fee_payment_sum
+  end
+
 end
