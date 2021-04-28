@@ -28,6 +28,6 @@ class Fee < ApplicationRecord
   end
   
   def particular_fee
-    student.stream.fees.where(id: self.id)
+    student.stream.fees.where(id: @fee.id).yearly_fee
   end
 end

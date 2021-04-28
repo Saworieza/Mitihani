@@ -46,7 +46,6 @@
             %td= fee.year.year
             %td= number_with_delimiter(fee.yearly_fee)
             %td
-            %td
   
             -# %td= fee.stream.student.payments.sum(:amount)
   %div.col-lg-5
@@ -67,10 +66,11 @@
           %td= @student.payments.sum(:amount)
         - @student.payments.group_by(&:fee).each do |fee, payment|
           %tr
-            = fee.package
+            %td= fee.package
+          %tr
             -payment.each do |payment|
               %tr
-                %td= payment.fee.package
+                -# %td= payment.fee.package
                 %td= payment.amount
                 %td= payment.method
                 -# %td= payment.date.strftime("%b %d, %y")

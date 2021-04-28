@@ -5,7 +5,7 @@
   = @payment.fee.package
 %p
   %b Student:
-  = @payment.student.stud_name
+  = link_to @payment.student.stud_name, student_path
 %p
   %b Amount:
   = @payment.amount
