@@ -6,7 +6,7 @@ s = Stream.first
 s.results.find(7).marks.find(1) : this gies you a specific mark and a specific student
 
 s = Student.first
-s.marks | gives you that students marks(tied to result)
+s.marks | giveraills you that students marks(tied to result)
 s.marks.find(1).result.exam | finds the particular exam
 
 ----------------------------
