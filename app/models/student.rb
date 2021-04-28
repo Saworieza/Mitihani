@@ -19,6 +19,6 @@ class Student < ApplicationRecord
 
   # sum fees paid by their groups
   def fee_sum_groups
-    
+    self.payments.sum(&:amount) 
   end
 end

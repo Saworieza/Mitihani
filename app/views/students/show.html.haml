@@ -64,17 +64,18 @@
         %tr
           %td Total Payments
           %td= @student.payments.sum(:amount)
-        - @student.payments.group_by(&:fee).each do |fee, payment|
+        - @student.payments.group_by(&:fee).each do |fee, payments|
           %tr
             %td= fee.package
           %tr
-            -payment.each do |payment|
+            -payments.each do |payment|
               %tr
                 -# %td= payment.fee.package
                 %td= payment.amount
                 %td= payment.method
                 -# %td= payment.date.strftime("%b %d, %y")
-                %td
-                %td
+          %tr
+            %td Total Payments
+            %td= payments.sum(&:amount)
 
 
