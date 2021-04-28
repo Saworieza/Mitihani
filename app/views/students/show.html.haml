@@ -49,7 +49,9 @@
   
             -# %td= fee.stream.student.payments.sum(:amount)
   %div.col-lg-5
-    %h5 Grouping Experiment
+    %h5 Fee Payments
+    %b Total Payments OverTime : Kshs
+    = number_with_delimiter(@student.payments.sum(:amount))
     %table.table.table-striped
       %thead
         %tr
@@ -61,21 +63,21 @@
           %th
 
       %tbody
-        %tr
-          %td Total Payments
-          %td= @student.payments.sum(:amount)
         - @student.payments.group_by(&:fee).each do |fee, payments|
-          %tr
-            %td= fee.package
+          %tr.thead-dark 
+            %td= link_to fee.package, fee
           %tr
             -payments.each do |payment|
               %tr
                 -# %td= payment.fee.package
-                %td= payment.amount
+                %td= number_with_delimiter(payment.amount)
                 %td= payment.method
                 -# %td= payment.date.strftime("%b %d, %y")
           %tr
-            %td Total Payments
-            %td= payments.sum(&:amount)
+            %td Total Payments for year
+            %td= number_with_delimiter(payments.sum(&:amount))
+          %tr
+            %td Fee Balance For Year
+            %td= fee.yearly_fee - payments.sum(&:amount)
 
 
