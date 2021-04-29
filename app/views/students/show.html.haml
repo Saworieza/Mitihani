@@ -67,7 +67,8 @@
       %tbody
         - @student.payments.group_by(&:fee).each do |fee, payments|
           %tr.thead-dark 
-            %td= link_to fee.package, fee
+            %td= fee.package
+            %td
           %tr
             -payments.each do |payment|
               %tr
