@@ -1,12 +1,13 @@
 %h1 Fee Packages
 = link_to 'New Fee Package', new_fee_path, class: "primary-btn small"
 %div.row
-  %div.col-lg-7
+  %div.col-lg-8
     %table.table.table-striped
       %thead
         %tr
           %th Package
           %th Stream
+          %th Students
           %th Year
           %th Fee
           %th Total Fees
@@ -18,6 +19,7 @@
           %tr
             %td= link_to fee.package, fee 
             %td= fee.stream.full_name
+            %td= fee.stream.students.count
             %td= fee.year.year
             %td= number_with_delimiter(fee.yearly_fee)
             %td= number_with_delimiter(fee.total_fees) 

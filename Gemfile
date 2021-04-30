@@ -42,6 +42,7 @@ gem "haml-rails", "~> 2.0" #generate haml
 gem "chartkick"
 gem 'chart-js-rails'
 gem 'cocoon'
+gem 'wicked'
 
 gem 'invoicing'
 
