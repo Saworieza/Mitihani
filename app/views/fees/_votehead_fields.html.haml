@@ -1,7 +1,13 @@
 .nested_fields 
-    %tbody
-        %tr
-            %td= f.text_field :votehead
-            %td= f.text_field :gok
-            %td= f.text_field :parent
-            %td= link_to_remove_association "remove votehead", f
+    %table
+        %thead
+            %tr
+                %td Activity
+                %td G.O.K
+                %td Parent
+        %tbody
+            %tr
+                %td= f.text_field :votehead
+                %td= f.text_field :gok
+                %td= f.text_field :parent
+                %td= link_to_remove_association "remove votehead", f

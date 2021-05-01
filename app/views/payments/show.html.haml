@@ -2,10 +2,10 @@
 
 %p
   %b Fee:
-  = @payment.fee.package
+  = number_with_delimiter(@payment.fee.package)
 %p
   %b Student:
-  = link_to @payment.student.stud_name, student_path
+  = link_to (@payment.student.stud_name), @payment.student
 %p
   %b Amount:
   = @payment.amount

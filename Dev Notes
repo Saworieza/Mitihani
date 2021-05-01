@@ -39,5 +39,7 @@ Lock classroom using year. cant have two classes with same name in same year
 Payment
     Date, Student, Transaction ID(auto), Bank, Payment Plan*, Amount, Status
 
-*Changes for Heroku
+*Count Active students in each academic year
+*show inactive students for each year
+*
 

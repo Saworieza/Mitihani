@@ -24,12 +24,6 @@
   
   %h3 Voteheads
   #voteheads
-    %table
-      %thead
-        %tr
-          %td Votehead
-          %td G.O.K
-          %td Parent
     = f.fields_for :voteheads do |votehead|
       = render 'votehead_fields', f: votehead
     .links 
