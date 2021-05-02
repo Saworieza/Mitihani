@@ -76,7 +76,7 @@
                 %td= payment.method
                 -# %td= payment.date.strftime("%b %d, %y")
           %tr
-            %td Total Payments for year
+            %td Total Payments for #{link_to fee.year.year, fee}
             %td= number_with_delimiter(payments.sum(&:amount))
           %tr
             %td Fee Balance For Year

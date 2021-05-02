@@ -50,6 +50,7 @@ gem 'invoicing'
 # gem 'hotwire-rails' -#works with rails 6
 gem "best_in_place"
 gem 'jquery-datatables'
+gem 'jquery-ui-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
