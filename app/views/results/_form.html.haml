@@ -19,11 +19,6 @@
     = f.collection_select :exam_id, Exam.all, :id, :exam_name, include_blank: true
     / = f.text_field :exams
   %hr 
-  / using grouped collection select
-  -# .field
-    -# = f.label :students_with_grouped_collection_select
-    -# = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true, multiple: true
-    -# = f.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, multiple: true, include_blank: true
 
   / list all students here and the mark field alongside if not push this fields to show
   %b Students:
@@ -41,7 +36,21 @@
             = mark.grouped_collection_select :student_id, Stream.order(:name), :students, :full_name, :id, :stud_name, include_blank: true
           %td 
             = mark.text_field :mark
-        -# %hr 
+
+  -# %h3 Exam Marks
+  -# %table.table.table-striped
+  -#   %thead
+  -#     %tr
+  -#       %th Full Name
+  -#       %th Marks
+  -#       %th 
+
+  -#   %tbody
+  -#     #marks
+  -#       = f.fields_for :marks do |mark|
+  -#         = render 'mark_fields', f: mark
+  -#       .links 
+  -#         = link_to_add_association 'add mark', f, :marks
 
   .actions
     = f.submit 'Save'

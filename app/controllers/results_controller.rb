@@ -3,7 +3,7 @@ class ResultsController < ApplicationController
 
   # GET /results or /results.json
   def index
-    @results = Result.all
+    @results = Result.order(created_at: :desc)
   end
 
   # GET /results/1 or /results/1.json
@@ -12,8 +12,8 @@ class ResultsController < ApplicationController
 
   # GET /results/new
   def new
-    @result = Result.new
-    3.times { @result.marks.build}
+    # @result = Result.new
+    # 3.times { @result.marks.build}
   end
 
   # GET /results/1/edit

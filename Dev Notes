@@ -36,10 +36,20 @@ Lock classroom using year. cant have two classes with same name in same year
 2. that the excess fee does not add to the cost of total fees for an academic year
 
 //****************  MODEL REDESIGNS   ********************\\
+Change fees to be layered into terms and the votehead totals be split into three chunks of terms and the payment 
+be cumulative.
 Payment
     Date, Student, Transaction ID(auto), Bank, Payment Plan*, Amount, Status
 
 *Count Active students in each academic year
 *show inactive students for each year
 *
+
+Automatically increment a field value in rails
+  after_create :set_invoice_number
+
+  def set_invoice_number
+    self.update_attribute(:invoice_number, 'ABC/' + Time.now.strftime("%Y")+ '/' + ("%.3i" %self.id))
+  end
+
 

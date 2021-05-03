@@ -4,6 +4,7 @@ class Result < ApplicationRecord
   belongs_to :exam
   # belongs_to :student
 
-  has_many :marks, dependent: :destroy
-  accepts_nested_attributes_for :marks
+  has_many :marks, inverse_of: :result
+  accepts_nested_attributes_for :marks, reject_if: :all_blank, allow_destroy: true
+
 end
