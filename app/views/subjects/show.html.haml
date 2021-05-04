@@ -1,17 +1,37 @@
 %p#notice= notice
 
-%p
-  %b Code:
-  = @subject.code
-%p
-  %b Short:
-  = @subject.short
-%p
-  %b Name:
-  = @subject.name
+%div.row
+  %div.col-lg-4
+    %p
+      %b Code:
+      = @subject.code
+    %p
+      %b Short:
+      = @subject.short
+    %p
+      %b Name:
+      = @subject.name
+    %p
+      %b H.O.D
+      Mr. Kilunda
 
-= link_to 'Edit', edit_subject_path(@subject)
-\|
-= link_to 'Destroy', subject, method: :delete, data: { confirm: 'Are you sure?' }
-\|
-= link_to 'Back', subjects_path
+    = link_to 'Edit', edit_subject_path(@subject)
+    \|
+    = link_to 'Destroy', @subject, method: :delete, data: { confirm: 'Are you sure?' }
+    \|
+    = link_to 'Back', subjects_path
+
+  %div.col-lg-4
+    %b Exams Done:
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Stream
+          %th Exam
+          %th &sum; Marks
+      %tbody
+        - @subject.subject_results.each do |result|
+          %tr
+            %td= result.stream.full_name
+            %td= link_to result.exam.exam_name, subject_result_path
+            %td= result.subject_mean

@@ -1,11 +1,13 @@
-%h1 Listing subject_results
+%h1 Subject Results
 
-%table
+= link_to 'New Subject result', new_subject_result_path
+%table.table.table-striped
   %thead
     %tr
+      %th Subject
       %th Stream
       %th Exam
-      %th Subject
+      %th &sum; Marks
       %th
       %th
       %th
@@ -13,13 +15,10 @@
   %tbody
     - @subject_results.each do |subject_result|
       %tr
-        %td= subject_result.stream
-        %td= subject_result.exam
-        %td= subject_result.subject
-        %td= link_to 'Show', subject_result
-        %td= link_to 'Edit', edit_subject_result_path(subject_result)
-        %td= link_to 'Destroy', subject_result, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to subject_result.subject.name, subject_result
+        %td= subject_result.stream.full_name
+        %td= subject_result.exam.exam_name
+        %td= subject_result.subject_mean
 
 %br
 
-= link_to 'New Subject result', new_subject_result_path

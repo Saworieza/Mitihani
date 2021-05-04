@@ -1,12 +1,28 @@
 %p#notice= notice
+%div.row
+  %div.col-lg-3
+    %p
+      %b Name:
+      = @exam.name
+    %p
+      %b Term:
+      = @exam.term.term_name
 
-%p
-  %b Name:
-  = @exam.name
-%p
-  %b Term:
-  = @exam.term
-
-= link_to 'Edit', edit_exam_path(@exam)
-\|
-= link_to 'Back', exams_path
+    = link_to 'Edit', edit_exam_path(@exam)
+    \|
+    = link_to 'Back', exams_path
+  
+  %div.col-lg-4
+    %b Classroom Marks:
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Stream
+          %th Subject
+          %th Mean
+      %tbody
+        - @exam.subject_results.each do |result|
+          %tr
+            %td= result.stream.full_name
+            %td= link_to result.subject.name, subject_result_path
+            %td= result.subject_mean

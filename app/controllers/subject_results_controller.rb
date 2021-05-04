@@ -3,7 +3,7 @@ class SubjectResultsController < ApplicationController
 
   # GET /subject_results or /subject_results.json
   def index
-    @subject_results = SubjectResult.all
+    @subject_results = SubjectResult.order(created_at: :desc)
   end
 
   # GET /subject_results/1 or /subject_results/1.json
@@ -25,7 +25,7 @@ class SubjectResultsController < ApplicationController
 
     respond_to do |format|
       if @subject_result.save
-        format.html { redirect_to @subject_result, notice: "Subject result was successfully created." }
+        format.html { redirect_to @subject_result, notice: "Subject Result Was Successfully created." }
         format.json { render :show, status: :created, location: @subject_result }
       else
         format.html { render :new, status: :unprocessable_entity }

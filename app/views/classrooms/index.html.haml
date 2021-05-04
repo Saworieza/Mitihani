@@ -5,15 +5,17 @@
   %thead
     %tr
       %th Year
-      %th Name
       %th Number
+      %th Name
+      %th Streams
 
   %tbody
     - @classrooms.each do |classroom|
       %tr
         %td= classroom.year.year
-        %td= link_to classroom.name, classroom
         %td= best_in_place classroom, :number
+        %td= link_to classroom.name, classroom
+        %td= classroom.streams.count
 
 %br
 

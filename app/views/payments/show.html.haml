@@ -8,7 +8,7 @@
   = link_to (@payment.student.stud_name), @payment.student
 %p
   %b Amount:
-  = @payment.amount
+  = number_with_delimiter(@payment.amount)
 %p
   %b Method:
   = @payment.method

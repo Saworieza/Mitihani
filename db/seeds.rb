@@ -72,3 +72,8 @@ voteheads = Votehead.create([
 	{votehead: "Personnel emolument (PE)", gok: 0.5755e4, parent: 0.5972e4, fee_id: 1},
 	{votehead: "Medical and Insurance", gok: 0.1999e4, parent: 0.0, fee_id: 1}
 ])
+payments = Payment.create([
+	{amount: 0.1e5, method: "Mpesa", fee_id: 1, student_id: 1},
+	{amount: 0.4e5, method: "Mpesa", fee_id: 1, student_id: 1},
+	{amount: 0.3e5, method: "Mpesa", fee_id: 1, student_id: 1}
+])

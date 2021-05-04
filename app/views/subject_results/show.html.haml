@@ -11,10 +11,10 @@
       = @subject_result.stream.full_name
     %p
       %b Exam:
-      = @subject_result.exam.exam_name
+      = link_to @subject_result.exam.exam_name, @subject_result.exam
     %p
       %b Subject:
-      = @subject_result.subject.name
+      = link_to @subject_result.subject.name, @subject_result.subject
     %p
       %b Mean Mark
       = @subject_result.subject_mean 
@@ -29,6 +29,6 @@
       %tbody
         - @subject_result.marks.each do |mark|
           %tr
-            %td= mark.student.stud_name
+            %td= link_to mark.student.stud_name, mark.student
             %td= mark.mark
 
