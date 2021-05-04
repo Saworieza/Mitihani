@@ -54,15 +54,21 @@ exams = Exam.create([
 	{term_id: 1, name: "Opener"},
 	{term_id: 1, name: "Mid Term"},
 	{term_id: 1, name: "End Term"},
-  {term_id: 2, name: "Opener"},
+  	{term_id: 2, name: "Opener"},
 	{term_id: 2, name: "Mid Term"},
 	{term_id: 2, name: "End Term"}
 ])
-results = Result.create([
-	{stream_id: 1, subject_id: 1, exam_id: 1},
-	{stream_id: 1, subject_id: 1, exam_id: 2},
-	{stream_id: 1, subject_id: 1, exam_id: 3},
-	{stream_id: 2, subject_id: 1, exam_id: 1},
-	{stream_id: 2, subject_id: 1, exam_id: 2},
-	{stream_id: 2, subject_id: 1, exam_id: 3}
+fees = Fee.create([
+	{package: "Form One Computer Package", year_id: 1, classroom_id: 1, stream_id: 1},
+])
+voteheads = Votehead.create([
+	{votehead: "Teaching learning material​​ and exams", gok: 0.4792e4, parent: 0.0, fee_id: 1,},
+	{votehead: "Boarding Equipment and Stores", gok: 0.0, parent: 0.32385e5, fee_id: 1},
+	{votehead: "Repairs, maintenance and improvement", gok: 0.1886e4, parent: 0.296e4, fee_id: 1},
+	{votehead: "Local travel and transport", gok: 0.1833e4, parent: 0.1621e4, fee_id: 1},
+	{votehead: "Administration costs", gok: 0.1572e4, parent: 0.3516e4, fee_id: 1},
+	{votehead: "Electricity, Water and conservancy (EWC)", gok: 0.3151e4, parent: 0.6302e4, fee_id: 1},
+	{votehead: "Activity fees", gok: 0.1256e4, parent: 0.798e3, fee_id: 1},
+	{votehead: "Personnel emolument (PE)", gok: 0.5755e4, parent: 0.5972e4, fee_id: 1},
+	{votehead: "Medical and Insurance", gok: 0.1999e4, parent: 0.0, fee_id: 1}
 ])

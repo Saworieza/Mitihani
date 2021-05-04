@@ -7,6 +7,6 @@ class Classroom < ApplicationRecord
   has_many :fees
 
   def class_name
-  	"#{number} #{name}"
+  	"#{name} #{year.year}"
   end
 end

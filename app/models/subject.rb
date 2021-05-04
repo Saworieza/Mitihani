@@ -1,3 +1,3 @@
 class Subject < ApplicationRecord
-    has_many :results
+    has_many :subject_results
 end

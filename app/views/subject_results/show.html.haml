@@ -1,0 +1,34 @@
+%p#notice= notice
+%div.row
+
+  %div.col-lg-4
+    = link_to 'Edit', edit_subject_result_path(@subject_result)
+    \|
+    = link_to 'Back', subject_results_path
+    %br
+    %p
+      %b Stream:
+      = @subject_result.stream.full_name
+    %p
+      %b Exam:
+      = @subject_result.exam.exam_name
+    %p
+      %b Subject:
+      = @subject_result.subject.name
+    %p
+      %b Mean Mark
+      = @subject_result.subject_mean 
+
+  %div.col-lg-4
+    %b Students Marks:
+    %table.table.table-striped
+      %thead
+        %tr
+          %th Student Details
+          %th marks
+      %tbody
+        - @subject_result.marks.each do |mark|
+          %tr
+            %td= mark.student.stud_name
+            %td= mark.mark
+

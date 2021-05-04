@@ -29,7 +29,12 @@
                     = link_to 'Students', students_path, class: "nav-link"
                 %li.nav-item
                     = link_to 'Subjects', subjects_path, class: "nav-link"
-                %li.nav-item
-                    = link_to 'Results', results_path, class: "nav-link"
-                %li.nav-item
-                    = link_to 'Marks', marks_path, class: "nav-link"
+                %li.nav-item.dropdown
+                    %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "aria-haspopup" => "true", "data-toggle" => "dropdown", :href => "#", :role => "button"}
+                        Results
+                    .dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+                        = link_to 'New Marks Entry', new_subject_result_path, class: "dropdown-item"
+                        .dropdown-divider
+                        = link_to 'Subject Results', subject_results_path, class: "dropdown-item"
+                        
+               

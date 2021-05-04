@@ -2,10 +2,10 @@
 
 one:
   stream: one
-  subject: one
   exam: one
+  subject: one
 
 two:
   stream: two
-  subject: two
   exam: two
+  subject: two

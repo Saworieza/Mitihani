@@ -1,0 +1,27 @@
+= form_for @subject_result do |f|
+  - if @subject_result.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@subject_result.errors.count, "error")} prohibited this subject_result from being saved:"
+      %ul
+        - @subject_result.errors.full_messages.each do |message|
+          %li= message
+
+  .field
+    = f.label :stream
+    = f.collection_select :stream_id, Stream.all, :id, :full_name, include_blank: true
+  .field
+    = f.label :exam
+    = f.collection_select :exam_id, Exam.order(:name), :id, :exam_name, include_blank: true
+  .field
+    = f.label :subject
+    = f.collection_select :subject_id, Subject.all, :id, :name, include_blank: true
+  
+  %h3 Student Marks
+  #marks 
+    = f.fields_for :marks do |mark|
+      = render 'mark_fields', f: mark 
+    .links 
+      = link_to_add_association 'add student', f, :marks
+
+  .actions
+    = f.submit 'Save'

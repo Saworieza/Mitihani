@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
+  resources :subject_results
   resources :payments
   resources :fees
-  resources :marks
-  resources :results
   resources :exams
   resources :terms
   resources :subjects

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_04_14_083255) do
+ActiveRecord::Schema.define(version: 2021_05_04_063300) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -44,11 +44,11 @@ ActiveRecord::Schema.define(version: 2021_04_14_083255) do
   create_table "marks", force: :cascade do |t|
     t.integer "mark"
     t.integer "student_id"
-    t.integer "result_id"
+    t.integer "subject_result_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["result_id"], name: "index_marks_on_result_id"
     t.index ["student_id"], name: "index_marks_on_student_id"
+    t.index ["subject_result_id"], name: "index_marks_on_subject_result_id"
   end
 
   create_table "payments", force: :cascade do |t|
@@ -60,17 +60,6 @@ ActiveRecord::Schema.define(version: 2021_04_14_083255) do
     t.datetime "updated_at", null: false
     t.index ["fee_id"], name: "index_payments_on_fee_id"
     t.index ["student_id"], name: "index_payments_on_student_id"
-  end
-
-  create_table "results", force: :cascade do |t|
-    t.integer "stream_id"
-    t.integer "subject_id"
-    t.integer "exam_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["exam_id"], name: "index_results_on_exam_id"
-    t.index ["stream_id"], name: "index_results_on_stream_id"
-    t.index ["subject_id"], name: "index_results_on_subject_id"
   end
 
   create_table "streams", force: :cascade do |t|
@@ -92,6 +81,17 @@ ActiveRecord::Schema.define(version: 2021_04_14_083255) do
     t.integer "fee_id"
     t.index ["classroom_id"], name: "index_students_on_classroom_id"
     t.index ["stream_id"], name: "index_students_on_stream_id"
+  end
+
+  create_table "subject_results", force: :cascade do |t|
+    t.integer "stream_id"
+    t.integer "exam_id"
+    t.integer "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["exam_id"], name: "index_subject_results_on_exam_id"
+    t.index ["stream_id"], name: "index_subject_results_on_stream_id"
+    t.index ["subject_id"], name: "index_subject_results_on_subject_id"
   end
 
   create_table "subjects", force: :cascade do |t|

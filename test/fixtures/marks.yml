@@ -3,9 +3,9 @@
 one:
   mark: 1
   student: one
-  result: one
+  subject_result: one
 
 two:
   mark: 1
   student: two
-  result: two
+  subject_result: two

@@ -1,0 +1,25 @@
+%h1 Listing subject_results
+
+%table
+  %thead
+    %tr
+      %th Stream
+      %th Exam
+      %th Subject
+      %th
+      %th
+      %th
+
+  %tbody
+    - @subject_results.each do |subject_result|
+      %tr
+        %td= subject_result.stream
+        %td= subject_result.exam
+        %td= subject_result.subject
+        %td= link_to 'Show', subject_result
+        %td= link_to 'Edit', edit_subject_result_path(subject_result)
+        %td= link_to 'Destroy', subject_result, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Subject result', new_subject_result_path

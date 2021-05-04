@@ -26,7 +26,7 @@ class StudentsController < ApplicationController
 
     respond_to do |format|
       if @student.save
-        format.html { redirect_to @student, notice: "Student was successfully created." }
+        format.html { redirect_to @student, notice: "Student Was Admitted Successfully." }
         format.json { render :show, status: :created, location: @student }
       else
         format.html { render :new, status: :unprocessable_entity }

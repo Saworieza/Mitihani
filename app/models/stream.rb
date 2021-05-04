@@ -1,7 +1,7 @@
 class Stream < ApplicationRecord
   belongs_to :classroom
   has_many :students
-  has_many :results
+  has_many :subject_results
   has_many :fees #should just have one per stream
 
   def full_name

@@ -8,11 +8,11 @@
 
   .field
     = f.label :classroom
-    = f.collection_select :classroom_id, Classroom.order(:name), :id, :name, include_blank: true
+    = f.collection_select :classroom_id, Classroom.all, :id, :class_name, include_blank: true
     / = f.text_field :classroom
   .field
     = f.label :stream
-    = f.grouped_collection_select :stream_id, Classroom.order(:name), :streams, :name, :id, :name, include_blank: true
+    = f.grouped_collection_select :stream_id, Classroom.all, :streams, :class_name, :id, :name, include_blank: true
     / = f.text_field :stream
   .field
     = f.label :adm_no

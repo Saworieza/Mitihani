@@ -1,0 +1,12 @@
+.nested_fields 
+    %table
+        %thead
+            %tr
+                %th Student Details
+                %th Mark
+        %tbody
+            %tr
+                %td= f.label :Student_details
+                %td= f.grouped_collection_select :student_id, Stream.all, :students, :full_name, :id, :stud_name, include_blank: true
+                %td= f.text_field :mark
+                %td= link_to_remove_association "remove student", f 
