@@ -56,28 +56,27 @@
     = number_with_delimiter(@student.payments.sum(:amount))
     %table.table.table-striped
       %thead
-        %tr
-          %th Fee Package
-          %th Amount
-          %th Method
-          %th Date 
-          %th 
-          %th
-
       %tbody
         - @student.payments.group_by(&:fee).each do |fee, payments|
           %tr.thead-dark 
-            %td= fee.package
-            %td
+            %td.topline
+              %b= fee.package
+            %td.topline
           %tr
-            -payments.each do |payment|
+            %thead
               %tr
-                %td= link_to number_with_delimiter(payment.amount), payment
-                %td= payment.method
-                -# %td= payment.date.strftime("%b %d, %y")
+                %th Amount
+                %th Method
+            -payments.each do |payment|
+              %tbody
+                %tr
+                  %td= link_to number_with_delimiter(payment.amount), payment
+                  %td= payment.method
+                  -# %td= payment.date.strftime("%b %d, %y")
           %tr
-            %td Total Payments for #{link_to fee.year.year, fee}
-            %td= number_with_delimiter(payments.sum(&:amount))
+            %td.topline 
+              Total Payments for #{link_to fee.year.year, fee}
+            %td.topline #{number_with_delimiter(payments.sum(&:amount))}
           %tr
             %td Fee Balance For Year
             %td= number_with_delimiter(fee.fee_balance)
@@ -88,22 +87,26 @@
     %table.table.table-striped
       %thead
       %tbody
-        -# - @student.stream.subject_results.each do |result|
         - @student.stream.subject_results.group_by(&:exam).each do |exam, results|
-          %tr.thead-dark 
-            %td= link_to exam.exam_name, exam
+          %tr
+            %td.topline #{link_to exam.exam_name, exam}
+            %td.topline
+            %td.topline
           %tr
             %thead
               %tr
                 %th Subject
                 %th Marks
+                %th Deviation
             -results.each do |result|
               %tbody
                 %tr
-                  %td= link_to result.subject.name
+                  %td= link_to result.subject.name, result.subject
                   - result.marks.each do |mark|
-                    %td= link_to mark.student.stud_name, mark.student
+                    -# %td= link_to mark.student.stud_name, mark.student
                     %td= mark.mark
+         
+                  
           
                
 

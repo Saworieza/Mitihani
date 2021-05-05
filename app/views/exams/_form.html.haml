@@ -11,6 +11,7 @@
     = f.text_field :name
   .field
     = f.label :term
-    = f.text_field :term
+    = f.collection_select :term_id, Term.all, :id, :term_name, include_blank: true
+    -# = f.text_field :term
   .actions
     = f.submit 'Save'

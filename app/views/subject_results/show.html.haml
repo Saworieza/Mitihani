@@ -26,9 +26,12 @@
         %tr
           %th Student Details
           %th marks
+          %th stream pos
+  
       %tbody
         - @subject_result.marks.each do |mark|
           %tr
             %td= link_to mark.student.stud_name, mark.student
             %td= mark.mark
+            %td
 

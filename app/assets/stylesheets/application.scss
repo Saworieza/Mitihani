@@ -121,6 +121,15 @@
   }
   //end hover effect
 // Top line
-.top-line{
+.topline{
   border-top:thin double red !important;
+  border-bottom:thin double red !important;
+}
+.subtotal{
+  border-top:thin double red !important;
+}
+.head-rotate{
+  height: 110px;
+  transform: rotate(300deg);
+  transform-origin: 15%;
 }

@@ -17,7 +17,4 @@ class Student < ApplicationRecord
     self.stream.fees(where)
   end
 
-  def fee_payments
-    # fee_paid = self.payments.group_by(&:fee).each do |fee, payments|
-  end
 end
