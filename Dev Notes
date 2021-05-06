@@ -38,6 +38,7 @@ Lock classroom using year. cant have two classes with same name in same year
 //****************  MODEL REDESIGNS   ********************\\
 Change fees to be layered into terms and the votehead totals be split into three chunks of terms and the payment 
 be cumulative.
+Add multiple classroom options for a fee structure and multiple stream options for the selected classrooms
 Payment
     Date, Student, Transaction ID(auto), Bank, Payment Plan*, Amount, Status
 

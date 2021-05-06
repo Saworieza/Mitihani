@@ -3,15 +3,14 @@
 
 %table.table.table-striped
   %thead
-    %tr
-      %th Name
-      %th Year
-
   %tbody
-    - @terms.each do |term|
+    -# - @terms.each do |term|
+    - @terms.group_by(&:year).each do |year, terms|
       %tr
+        %th.topline #{link_to year.year, year} Academic Terms
+      %tr
+      -terms.each do |term|
         %td= link_to term.name, term
-        %td= term.year.year
 
 %br
 

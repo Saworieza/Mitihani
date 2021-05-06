@@ -15,7 +15,7 @@
     -# = f.text_field :year
   .field
     = f.label :classroom
-    = f.grouped_collection_select :classroom_id, Year.order(:year), :classrooms, :year, :id,  :name, include_blank: true
+    = f.grouped_collection_select :classroom_id, Year.order(:year), :classrooms, :year, :id,  :name, include_blank: true, multiple: true
   .field
     = f.label :stream
     = f.grouped_collection_select :stream_id, Classroom.order(:name), :streams, :class_name, :id,  :name, include_blank: true

@@ -11,9 +11,10 @@
 // about supported directives.
 //
 //= require jquery3
-//= require best_in_place
 //= require jquery-ui
+//= require best_in_place
 //= require best_in_place.jquery-ui
+//= require chosen-jquery
 //= require popper
 //= require bootstrap
 //= require rails-ujs

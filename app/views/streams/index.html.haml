@@ -3,14 +3,13 @@
 
 %table.table.table-striped
   %thead
-    %tr
-      %th Classroom
-      %th Stream
-
   %tbody
-    - @streams.each do |stream|
+    -# - @streams.each do |stream|
+    - @streams.group_by(&:classroom).each do |classroom, streams|
       %tr
-        %td= "#{stream.classroom.name} #{stream.classroom.year.year}"
+        %th #{classroom.class_name} 
+      %tr
+      -streams.each do |stream|
         %td= link_to stream.name, stream
 
 %br

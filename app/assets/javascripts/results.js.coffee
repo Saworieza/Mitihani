@@ -29,3 +29,4 @@ jQuery ->
     else
       $('#result_student_id').empty()
       $('#result_student_id').parent().hide()
+
