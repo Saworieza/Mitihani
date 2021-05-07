@@ -46,13 +46,14 @@
               %tbody
                 %tr
                   %td= link_to result.stream.full_name, result
-                  %td= link_to result.subject.name, result.subject
+                  %td= link_to result.subject.short, result.subject
                   - result.marks.each do |mark|
                     %td= link_to mark.student.stud_name, mark.student
                     %td= mark.mark
 
   -# ********************* //EXPERIMENT ZONE A ************************
-
+%hr
+  -# ********************* EXPERIMENT ZONE B ************************
 %div.row
   %div.col-lg-6
     %b Students Marks:
@@ -61,44 +62,24 @@
       %tbody
         - @exam.subject_results.group_by(&:exam).each do |exam, results|
           %tr.thead-dark 
-            %td= link_to exam.exam_name, exam
+            -# %td= link_to exam.exam_name, exam
           %tr
             %thead
               %tr
                 %th Subject
                 %th Marks
-            -results.each do |result|
+            -results.group_by(&:subject).each do |subject, result|
               %tbody
                 %tr
-                  %td= link_to result.subject.name, result.subject
-                  - result.marks.each do |mark|
-                    %td= link_to mark.student.stud_name, mark.student
-                    %td= mark.mark
-
-%div.row
-  %div.col-lg-6
-    %b Students Marks:
-    %table.table.table-striped
-      %thead
-      %tbody
-        - @exam.subject_results.group_by(&:exam).each do |exam, results|
-          %tr 
-            %td= link_to exam.exam_name, exam
-          %tr
-            %thead
-              %tr
-                %th Subject
-                %th Marks
-            -results.each do |result|
-              %tbody
                 %tr
-                  -# %td= link_to result.subject.name, result.subject
-                  - result.marks.group_by(&:student).each do |student, marks|
-                    %tr
-                      %td= link_to student.stud_name, student
-                    -marks.each do |mark|
+                  %td= link_to subject.name, subject
+                - result.each do |res|
+                  %tr
+                    - res.marks.each do |mark|
+                      %td= link_to mark.student.stud_name, mark.student
                       %td= mark.mark
-
+  
+  -# ********************* //EXPERIMENT ZONE B ************************
   %div.col-lg-6
     %table.table.table-striped
       %thead
@@ -114,6 +95,7 @@
         %tr
           %td Peter Wamae
           %td G
+          %td 3
           %td 56
           %td 45
           %td 52
@@ -121,6 +103,7 @@
         %tr
           %td John Ngugi
           %td R
+          %td 3
           %td 56
           %td 45
           %td 52
