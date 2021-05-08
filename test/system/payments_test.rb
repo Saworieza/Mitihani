@@ -14,7 +14,10 @@ class PaymentsTest < ApplicationSystemTestCase
     visit payments_url
     click_on "New Payment"
 
+    fill_in "Transactionid", with: @payment.TransactionId
     fill_in "Amount", with: @payment.amount
+    fill_in "Bank", with: @payment.bank
+    fill_in "Date", with: @payment.date
     fill_in "Fee", with: @payment.fee_id
     fill_in "Method", with: @payment.method
     fill_in "Student", with: @payment.student_id
@@ -28,7 +31,10 @@ class PaymentsTest < ApplicationSystemTestCase
     visit payments_url
     click_on "Edit", match: :first
 
+    fill_in "Transactionid", with: @payment.TransactionId
     fill_in "Amount", with: @payment.amount
+    fill_in "Bank", with: @payment.bank
+    fill_in "Date", with: @payment.date
     fill_in "Fee", with: @payment.fee_id
     fill_in "Method", with: @payment.method
     fill_in "Student", with: @payment.student_id

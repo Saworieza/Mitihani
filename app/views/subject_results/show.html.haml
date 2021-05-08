@@ -7,6 +7,9 @@
     = link_to 'Back', subject_results_path
     %br
     %p
+      %b Class:
+      = @subject_result.classroom.class_name
+    %p
       %b Stream:
       = @subject_result.stream.full_name
     %p
@@ -29,9 +32,8 @@
           %th stream pos
   
       %tbody
-        - @subject_result.marks.each do |mark|
+        - @subject_result.marks.each.with_index(1) do |mark, index|
           %tr
             %td= link_to mark.student.stud_name, mark.student
             %td= mark.mark
-            %td
-
+            %td #{index}

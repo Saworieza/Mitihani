@@ -59,27 +59,29 @@
       %tbody
         - @student.payments.group_by(&:fee).each do |fee, payments|
           %tr.thead-dark 
-            %td.topline
+            %td.topline{colspan: 4}
               %b= fee.package
-            %td.topline
           %tr
             %thead
               %tr
-                %th Amount
+                %th Trans #ID
                 %th Method
+                %th Date
+                %th Amount
             -payments.each do |payment|
               %tbody
                 %tr
-                  %td= link_to number_with_delimiter(payment.amount), payment
+                  %td= link_to payment.TransactionId, payment
                   %td= payment.method
-                  -# %td= payment.date.strftime("%b %d, %y")
+                  %td= payment.date.strftime("%b %d, %y")
+                  %td= link_to number_with_delimiter(payment.amount), payment
           %tr
-            %td.topline 
-              Total Payments for #{link_to fee.year.year, fee}
-            %td.topline #{number_with_delimiter(payments.sum(&:amount))}
+            %th.subtotal{colspan: 3} 
+              Total Payments for #{link_to fee.year.year, fee} 
+            %th.subtotal #{number_with_delimiter(payments.sum(&:amount))}
           %tr
-            %td Fee Balance For Year
-            %td= number_with_delimiter(fee.fee_balance)
+            %th.topline{colspan: 3} Fee Balance For #{link_to fee.year.year, fee}
+            %th.topline= number_with_delimiter(fee.fee_balance)
 
 %div.row
   %div.col-lg-6

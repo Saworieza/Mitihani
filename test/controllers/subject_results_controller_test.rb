@@ -17,7 +17,7 @@ class SubjectResultsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create subject_result" do
     assert_difference('SubjectResult.count') do
-      post subject_results_url, params: { subject_result: { exam_id: @subject_result.exam_id, stream_id: @subject_result.stream_id, subject_id: @subject_result.subject_id } }
+      post subject_results_url, params: { subject_result: { classroom_id: @subject_result.classroom_id, exam_id: @subject_result.exam_id, stream_id: @subject_result.stream_id, subject_id: @subject_result.subject_id } }
     end
 
     assert_redirected_to subject_result_url(SubjectResult.last)
@@ -34,7 +34,7 @@ class SubjectResultsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update subject_result" do
-    patch subject_result_url(@subject_result), params: { subject_result: { exam_id: @subject_result.exam_id, stream_id: @subject_result.stream_id, subject_id: @subject_result.subject_id } }
+    patch subject_result_url(@subject_result), params: { subject_result: { classroom_id: @subject_result.classroom_id, exam_id: @subject_result.exam_id, stream_id: @subject_result.stream_id, subject_id: @subject_result.subject_id } }
     assert_redirected_to subject_result_url(@subject_result)
   end
 

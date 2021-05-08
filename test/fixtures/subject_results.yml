@@ -1,11 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
+  classroom: one
   stream: one
   exam: one
   subject: one
 
 two:
+  classroom: two
   stream: two
   exam: two
   subject: two

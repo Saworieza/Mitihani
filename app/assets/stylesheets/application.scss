@@ -13,7 +13,7 @@
  */
  @import "bootstrap";
  @import "chosen";
-//  @import "jquery-ui";
+ @import "jquery-ui";
 
  body{
      background: linear-gradient(90deg, #7c32ff 0%, #c738d8 51%, #7c32ff 100%);
@@ -123,11 +123,11 @@
   //end hover effect
 // Top line
 .topline{
-  // border-top:thin double red !important;
   border-bottom:thin double red !important;
+  border-bottom-style:double !important;
 }
 .subtotal{
-  border-top:thin double red !important;
+  border-bottom:thin solid orange !important;
 }
 .head-rotate{
   height: 110px;

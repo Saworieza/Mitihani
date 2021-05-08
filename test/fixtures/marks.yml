@@ -2,10 +2,10 @@
 
 one:
   mark: 1
-  student: one
   subject_result: one
+  student: one
 
 two:
   mark: 1
-  student: two
   subject_result: two
+  student: two

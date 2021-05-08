@@ -25,7 +25,7 @@ class PaymentsController < ApplicationController
 
     respond_to do |format|
       if @payment.save
-        format.html { redirect_to @payment, notice: "Payment was successfully made." }
+        format.html { redirect_to @payment, notice: "Payment was successfully created." }
         format.json { render :show, status: :created, location: @payment }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +64,6 @@ class PaymentsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def payment_params
-      params.require(:payment).permit(:amount, :method, :fee_id, :student_id)
+      params.require(:payment).permit(:TransactionId, :date, :amount, :bank, :method, :student_id, :fee_id)
     end
 end

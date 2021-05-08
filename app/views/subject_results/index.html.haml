@@ -1,24 +1,29 @@
 %h1 Subject Results
 
 = link_to 'New Subject result', new_subject_result_path
-%table.table.table-striped
-  %thead
-    %tr
-      %th Subject
-      %th Stream
-      %th Exam
-      %th &sum; Marks
-      %th
-      %th
-      %th
+%div.row
+  %div.col-lg-6
+    %table.table.table-striped
+      %thead
+      %tbody
+        - @subject_results.each.group_by(&:classroom).each do |classroom, subject_result|
+          %tr.thead-light.topline
+            %th{colspan: 5} Results for Class #{link_to classroom.class_name, classroom}
+          %tr
+            %thead
+              %tr
+                %th Exam
+                %th Subject
+                %th Classroom
+                %th Stream
+                %th &sum; Marks
+          - subject_result.each do |result|
+            %tr
+              %tbody
+                %td #{link_to result.exam.exam_name, result}
+                %td #{link_to result.subject.name, result}
+                %td= result.classroom.class_name
+                %td= result.stream.full_name
+                %td= result.subject_mean
 
-  %tbody
-    - @subject_results.each do |subject_result|
-      %tr
-        %td= link_to subject_result.subject.name, subject_result
-        %td= subject_result.stream.full_name
-        %td= subject_result.exam.exam_name
-        %td= subject_result.subject_mean
-
-%br
-
+    %br

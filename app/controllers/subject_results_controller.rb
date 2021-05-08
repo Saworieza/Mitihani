@@ -3,7 +3,7 @@ class SubjectResultsController < ApplicationController
 
   # GET /subject_results or /subject_results.json
   def index
-    @subject_results = SubjectResult.order(created_at: :desc)
+    @subject_results = SubjectResult.all
   end
 
   # GET /subject_results/1 or /subject_results/1.json
@@ -25,7 +25,7 @@ class SubjectResultsController < ApplicationController
 
     respond_to do |format|
       if @subject_result.save
-        format.html { redirect_to @subject_result, notice: "Subject Result Was Successfully created." }
+        format.html { redirect_to @subject_result, notice: "Subject result was successfully created." }
         format.json { render :show, status: :created, location: @subject_result }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -64,6 +64,6 @@ class SubjectResultsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def subject_result_params
-      params.require(:subject_result).permit(:stream_id, :exam_id, :subject_id, marks_attributes: [:id, :mark, :student_id, :_destroy])
+      params.require(:subject_result).permit(:classroom_id, :stream_id, :exam_id, :subject_id, marks_attributes: [:id, :mark, :student_id, :_destroy])
     end
 end

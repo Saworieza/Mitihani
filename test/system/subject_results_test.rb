@@ -14,6 +14,7 @@ class SubjectResultsTest < ApplicationSystemTestCase
     visit subject_results_url
     click_on "New Subject Result"
 
+    fill_in "Classroom", with: @subject_result.classroom_id
     fill_in "Exam", with: @subject_result.exam_id
     fill_in "Stream", with: @subject_result.stream_id
     fill_in "Subject", with: @subject_result.subject_id
@@ -27,6 +28,7 @@ class SubjectResultsTest < ApplicationSystemTestCase
     visit subject_results_url
     click_on "Edit", match: :first
 
+    fill_in "Classroom", with: @subject_result.classroom_id
     fill_in "Exam", with: @subject_result.exam_id
     fill_in "Stream", with: @subject_result.stream_id
     fill_in "Subject", with: @subject_result.subject_id

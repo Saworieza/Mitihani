@@ -13,29 +13,38 @@
     = link_to 'Back', exams_path
   
   %div.col-lg-4
-    %b Classroom Marks:
+    %b Overall Performance by Class
     %table.table.table-striped
       %thead
-        %tr
-          %th Stream
-          %th Subject
-          %th Mean
       %tbody
-        - @exam.subject_results.each do |result|
+        - @exam.subject_results.group_by(&:classroom).each do |classroom, results|
+          %tr.thead-light 
+            %th.topline{:colspan => 8}  Class #{link_to classroom.class_name, classroom} Summary
           %tr
-            %td= result.stream.full_name
-            %td= link_to result.subject.name, result
-            %td= result.subject_mean
-            %td= result.marks.count
+            %thead
+              %tr
+                %th Stream
+                %th Subject
+                %th Mean
+                %th Students
+            -results.each do |result|
+              %tbody
+                %tr
+                  %td= result.stream.full_name
+                  %td= link_to result.subject.name, result
+                  %td= result.subject_mean
+                  %td= result.marks.count
 
   -# ********************* EXPERIMENT ZONE A ************************
 
   %div.col-lg-6
-    %b Students Marks:
+    %b Students Performance Tables By Class:
     %table.table.table-striped
       %thead
       %tbody
-        - @exam.subject_results.group_by(&:exam).each do |exam, results|
+        - @exam.subject_results.group_by(&:classroom).each do |classroom, results|
+          %tr.thead-light 
+            %th.topline{:colspan => 8}  Class #{link_to classroom.class_name, classroom} Student Results 
           %tr
             %thead
               %tr

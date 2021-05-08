@@ -25,31 +25,6 @@
             %td= number_with_delimiter(fee.total_fees) 
             %td= number_with_delimiter(fee.payments.sum(:amount))
             %td= number_with_delimiter(fee.balances)
-
-/ %h1 Listing fees
-
-/ %table
-/   %thead
-/     %tr
-/       %th Package
-/       %th Year
-/       %th Classroom
-/       %th Stream
-/       %th
-/       %th
-/       %th
-
-/   %tbody
-/     - @fees.each do |fee|
-/       %tr
-/         %td= fee.package
-/         %td= fee.year
-/         %td= fee.classroom
-/         %td= fee.stream
-/         %td= link_to 'Show', fee
-/         %td= link_to 'Edit', edit_fee_path(fee)
-/         %td= link_to 'Destroy', fee, method: :delete, data: { confirm: 'Are you sure?' }
-
 %br
 
 = link_to 'New Fee', new_fee_path

@@ -73,7 +73,7 @@ voteheads = Votehead.create([
 	{votehead: "Medical and Insurance", gok: 0.1999e4, parent: 0.0, fee_id: 1}
 ])
 payments = Payment.create([
-	{amount: 0.1e5, method: "Mpesa", fee_id: 1, student_id: 1},
-	{amount: 0.4e5, method: "Mpesa", fee_id: 1, student_id: 1},
-	{amount: 0.3e5, method: "Mpesa", fee_id: 1, student_id: 1}
+	{TransactionId: '#08 277', date: "2021-05-08", amount: 0.1e5, bank: "M-Pesa TILL", method: "Mpesa", fee_id: 1, student_id: 1},
+	{TransactionId: '#08 278', date: "2021-05-08", amount: 0.1e5, bank: "EQUITY Bank", method: "Cheque", fee_id: 1, student_id: 1},
+	{TransactionId: '#08 279', date: "2021-05-08", amount: 0.1e5, bank: "CO-OP Bank", method: "Bank Transfer", fee_id: 1, student_id: 1}
 ])

@@ -1,11 +1,15 @@
 %h1 Listing payments
+= link_to 'New Payment', new_payment_path
 
 %table.table.table-striped
   %thead
     %tr
+      %th Transactionid
+      %th Fee
       %th Student
-      %th Fee Package
+      %th Date
       %th Amount
+      %th Bank
       %th Method
       %th
       %th
@@ -14,14 +18,13 @@
   %tbody
     - @payments.each do |payment|
       %tr
-        %td= payment.student.stud_name
+        %td= link_to payment.TransactionId, payment
         %td= payment.fee.package
-        %td= payment.amount
+        %td= payment.student.stud_name
+        %td= payment.date
+        %td= number_with_delimiter(payment.amount)
+        %td= payment.bank
         %td= payment.method
-        %td= link_to 'Show', payment
-        %td= link_to 'Edit', edit_payment_path(payment)
-        %td= link_to 'Destroy', payment, method: :delete, data: { confirm: 'Are you sure?' }
 
 %br
 
-= link_to 'New Payment', new_payment_path

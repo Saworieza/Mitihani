@@ -1,4 +1,5 @@
 class SubjectResult < ApplicationRecord
+  belongs_to :classroom
   belongs_to :stream
   belongs_to :exam
   belongs_to :subject

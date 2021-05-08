@@ -12,8 +12,15 @@
   .field
     = f.label :student
     = f.collection_select :student_id, Student.all, :id, :stud_name, include_blank: true
-    -# the below field does autocomplete search for students adm
-    -# = f.text_field :student_adm, data: {autocomplete_source: Student.order(:adm_no).map(&:adm_no)}
+  .field
+    = f.label 'transactio id'
+    = f.text_field :TransactionId
+  .field
+    = f.label :date
+    = f.date_select :date, class: 'datepicker'
+  .field
+    = f.label :bank
+    = f.text_field :bank
   .field
     = f.label :amount
     = f.text_field :amount

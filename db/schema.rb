@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_04_063300) do
+ActiveRecord::Schema.define(version: 2021_05_08_125508) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2021_05_04_063300) do
 
   create_table "marks", force: :cascade do |t|
     t.integer "mark"
-    t.integer "student_id"
     t.integer "subject_result_id"
+    t.integer "student_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["student_id"], name: "index_marks_on_student_id"
@@ -52,10 +52,13 @@ ActiveRecord::Schema.define(version: 2021_05_04_063300) do
   end
 
   create_table "payments", force: :cascade do |t|
+    t.string "TransactionId"
+    t.date "date"
     t.decimal "amount"
+    t.string "bank"
     t.string "method"
-    t.integer "fee_id"
     t.integer "student_id"
+    t.integer "fee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["fee_id"], name: "index_payments_on_fee_id"
@@ -84,11 +87,13 @@ ActiveRecord::Schema.define(version: 2021_05_04_063300) do
   end
 
   create_table "subject_results", force: :cascade do |t|
+    t.integer "classroom_id"
     t.integer "stream_id"
     t.integer "exam_id"
     t.integer "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["classroom_id"], name: "index_subject_results_on_classroom_id"
     t.index ["exam_id"], name: "index_subject_results_on_exam_id"
     t.index ["stream_id"], name: "index_subject_results_on_stream_id"
     t.index ["subject_id"], name: "index_subject_results_on_subject_id"
