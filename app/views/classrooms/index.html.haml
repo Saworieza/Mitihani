@@ -1,21 +1,29 @@
 %h1 Listing classrooms
 = link_to 'New Classroom', new_classroom_path
+%div.row
+  %div.col-lg-6
+    %table.table.table-striped
+      %thead
+      %tbody
+        - @classrooms.group_by(&:year).each do |year, classroom|
+          %tr
+            %th{:colspan => 4} The Year #{link_to year.year, year} has #{year.classrooms.count} Classes &amp; --- Students
+          %tr
+            %thead
+              %tr
+                %th Number
+                %th Name
+                %th Streams
+                %th Students
+          - classroom.each do |klass|
+            %tr 
+              %tbody
+                %tr
+                  %td= best_in_place klass, :number
+                  %td= link_to klass.name, klass
+                  %td= klass.streams.count
+                  %td= klass.students.count
+                  -# %td= klass.map(&:students).sum
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Number
-      %th Year
-      %th Streams
-
-  %tbody
-    - @classrooms.each do |classroom|
-      %tr
-        %td= link_to classroom.name, classroom
-        %td= best_in_place classroom, :number
-        %td= classroom.year.year
-        %td= classroom.streams.count
-
-%br
+    %br
 

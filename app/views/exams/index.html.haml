@@ -1,20 +1,16 @@
-%h1 Showing exams
-
-%table.table.table-striped
-  %thead
-    %tr
-      %th Name
-      %th Term
-      %th
-      %th
-      %th
-
-  %tbody
-    - @exams.each do |exam|
-      %tr
-        %td= link_to exam.name, exam
-        %td= exam.term.term_name
-        
-%br
-
+%h3 Showing Exams By Term
 = link_to 'New Exam', new_exam_path
+%div.row
+  %div.col-lg-6
+    %table.table.table-striped
+      %thead
+      %tbody
+        - @exams.group_by(&:term).each do |term, exam|
+          %tr
+            %th.topline{:colspan => 3} There are #{term.exams.count} Exams for #{link_to term.term_name, term}
+          %tr
+          - exam.each do |ex|
+            %td #{link_to ex.name, ex}
+            
+    %br
+

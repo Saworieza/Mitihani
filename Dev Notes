@@ -42,6 +42,14 @@ Add multiple classroom options for a fee structure and multiple stream options f
 Payment
     Date, Student, Transaction ID(auto), Bank, Payment Plan*, Amount, Status
 
+Subject results 
+  rename to exam result
+  Belongs to a classroom
+  can have multiple streams at the same Time (HABTM)
+  belongs to exam
+  has many marks (cocoon)
+
+
 *Count Active students in each academic year
 *show inactive students for each year
 *

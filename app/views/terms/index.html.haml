@@ -1,16 +1,17 @@
 %h1 Listing terms
 = link_to 'New Term', new_term_path
+%div.row
+  %div.col-lg-6
+    %table.table.table-striped
+      %thead
+      %tbody
+        -# - @terms.each do |term|
+        - @terms.group_by(&:year).each do |year, terms|
+          %tr
+            %th.topline{:colspan => 3}  The year #{link_to year.year, year} Has #{year.terms.count} Academic Terms
+          %tr
+          -terms.each do |term|
+            %td= link_to term.name, term
 
-%table.table.table-striped
-  %thead
-  %tbody
-    -# - @terms.each do |term|
-    - @terms.group_by(&:year).each do |year, terms|
-      %tr
-        %th.topline #{link_to year.year, year} Academic Terms
-      %tr
-      -terms.each do |term|
-        %td= link_to term.name, term
-
-%br
+    %br
 

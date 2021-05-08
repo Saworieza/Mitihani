@@ -1,16 +1,16 @@
-%h1 Listing streams
+%h1 Listing Streams By Classes
 = link_to 'New Stream', new_stream_path
+%div.row
+  %div.col-lg-6
+    %table.table.table-striped  
+      %thead
+      %tbody
+        - @streams.group_by(&:classroom).each do |classroom, streams|
+          %tr
+            %th.topline{:colspan => 2} #{classroom.class_name} 
+          %tr
+          -streams.each do |stream|
+            %td #{link_to stream.name, stream}
 
-%table.table.table-striped
-  %thead
-  %tbody
-    -# - @streams.each do |stream|
-    - @streams.group_by(&:classroom).each do |classroom, streams|
-      %tr
-        %th #{classroom.class_name} 
-      %tr
-      -streams.each do |stream|
-        %td= link_to stream.name, stream
-
-%br
+    %br
 
