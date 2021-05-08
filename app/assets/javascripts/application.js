@@ -14,7 +14,7 @@
 //= require jquery-ui
 //= require best_in_place
 //= require best_in_place.jquery-ui
-//= require chosen-jquery
+//= require chosen
 //= require popper
 //= require bootstrap
 //= require rails-ujs
