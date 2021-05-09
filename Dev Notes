@@ -49,6 +49,8 @@ Subject results
   belongs to exam
   has many marks (cocoon)
 
+c.streams.map{|stream| stream.fees}
+
 
 *Count Active students in each academic year
 *show inactive students for each year

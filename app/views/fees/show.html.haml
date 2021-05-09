@@ -80,7 +80,7 @@
         - @fee.stream.students.each do |student|
           %tr
             %td= link_to student.stud_name, student
-            %td= number_with_delimiter(student.stud_payments)
-            %td= student.payments.sum(:amount)
+            %td= number_with_delimiter(student.course_payments(@fee.id))
+            %td= (student.stream.fee.yearly_fee - student.course_payments(@fee.id))
             -# work in progress with this yearly fee
 

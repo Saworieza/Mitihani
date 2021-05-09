@@ -104,10 +104,10 @@
               %tbody
                 %tr
                   %td= link_to result.subject.name, result.subject
-                  - result.marks.each do |mark|
-                    -# %td= link_to mark.student.stud_name, mark.student
-                    %td= mark.mark
-         
+                  %td= link_to "#{@student.stud_name} : #{result.marks.where(student_id: @student.id).pluck(:mark).sum}"
+            
+            %p Total Score: #{results.map{|res| res.marks.where(student_id: @student.id).pluck(:mark)}.flatten.sum}
+  = pie_chart({"football" => 10, "basketball" => 5})
                   
           
                
