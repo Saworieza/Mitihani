@@ -81,6 +81,6 @@
           %tr
             %td= link_to student.stud_name, student
             %td= number_with_delimiter(student.course_payments(@fee.id))
-            %td= (student.stream.fee.yearly_fee - student.course_payments(@fee.id))
+            %td= number_with_delimiter((student.stream.fee.yearly_fee - student.course_payments(@fee.id)))
             -# work in progress with this yearly fee
 

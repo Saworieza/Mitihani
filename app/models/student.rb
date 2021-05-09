@@ -21,8 +21,7 @@ class Student < ApplicationRecord
     payments.where(fee_id: fee_id).sum(:amount)
   end
 
-  def student_results(subject_result_id, stream_id)
-    
-  end
+  # def student_results(subject_result_id, stream_id)
+  # end
 
 end

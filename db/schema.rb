@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_09_091948) do
+ActiveRecord::Schema.define(version: 2021_05_08_125508) do
 
   create_table "classrooms", force: :cascade do |t|
     t.string "name"
@@ -93,7 +93,6 @@ ActiveRecord::Schema.define(version: 2021_05_09_091948) do
     t.integer "subject_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "student_id"
     t.index ["classroom_id"], name: "index_subject_results_on_classroom_id"
     t.index ["exam_id"], name: "index_subject_results_on_exam_id"
     t.index ["stream_id"], name: "index_subject_results_on_stream_id"
