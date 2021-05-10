@@ -77,3 +77,31 @@ payments = Payment.create([
 	{TransactionId: '#08 278', date: "2021-05-08", amount: 0.1e5, bank: "EQUITY Bank", method: "Cheque", fee_id: 1, student_id: 1},
 	{TransactionId: '#08 279', date: "2021-05-08", amount: 0.1e5, bank: "CO-OP Bank", method: "Bank Transfer", fee_id: 1, student_id: 1}
 ])
+results = SubjectResult.create([
+	{classroom_id: 1, stream_id: 1, exam_id: 3, subject_id: 1},
+	{classroom_id: 1, stream_id: 1, exam_id: 3, subject_id: 2},
+	{classroom_id: 1, stream_id: 1, exam_id: 3, subject_id: 3},
+	{classroom_id: 1, stream_id: 1, exam_id: 2, subject_id: 1},
+	{classroom_id: 1, stream_id: 1, exam_id: 1, subject_id: 2},
+	{classroom_id: 1, stream_id: 1, exam_id: 2, subject_id: 2},
+	{classroom_id: 1, stream_id: 1, exam_id: 2, subject_id: 3},
+	{classroom_id: 1, stream_id: 1, exam_id: 1, subject_id: 1},
+	{classroom_id: 1, stream_id: 1, exam_id: 1, subject_id: 3}
+])
+marks = Mark.create([
+	{mark: 54, subject_result_id: 1, student_id: 1},
+	{mark: 35, subject_result_id: 1, student_id: 3},
+	{mark: 68, subject_result_id: 1, student_id: 5},
+	{mark: 45, subject_result_id: 2, student_id: 1},
+	{mark: 43, subject_result_id: 3, student_id: 1},
+	{mark: 47, subject_result_id: 4, student_id: 1},
+	{mark: 78, subject_result_id: 4, student_id: 3},
+	{mark: 87, subject_result_id: 4, student_id: 5},
+	{mark: 48, subject_result_id: 5, student_id: 1},
+	{mark: 54, subject_result_id: 5, student_id: 3},
+	{mark: 35, subject_result_id: 5, student_id: 5},
+	{mark: 56, subject_result_id: 6, student_id: 1},
+	{mark: 84, subject_result_id: 7, student_id: 1},
+	{mark: 54, subject_result_id: 8, student_id: 1},
+	{mark: 76, subject_result_id: 9, student_id: 1}
+])

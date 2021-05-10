@@ -35,6 +35,8 @@
                   %td= result.subject_mean
                   %td= result.marks.count
 
+            = line_chart results.group_by(&:subject)
+
   -# ********************* EXPERIMENT ZONE A ************************
 
   %div.col-lg-6

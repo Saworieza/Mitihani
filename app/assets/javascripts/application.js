@@ -20,8 +20,8 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require Chart.bundle
 //= requre chartkick
+//= require Chart.bundle
 //= require cocoon
 //= require_tree .
 

@@ -106,7 +106,7 @@
                 %tr
                   %td= link_to result.subject.name, result.subject
                   %td Tr. Kilunda
-                  %td= link_to "#{result.marks.where(student_id: @student.id).pluck(:mark).sum}"
+                  %td= link_to "#{result.marks.where(student_id: @student.id).pluck(:mark).sum}", result
                   %td 7
                   %td C+
                   %td 2^
@@ -122,8 +122,69 @@
               %td.topline 7
               %td.topline C+
               %td.topline
- 
-  -# = pie_chart({"football" => 10, "basketball" => 5})
+
+  -# ************************ AREA 51 *************************
+  %div.col-lg-6
+    %h3 Term One 2021
+    %table.table.table-striped
+      %thead
+        %tr
+          %td Subject
+          %td Opener
+          %td Mid Term
+          %td End Term
+          %td AVG
+          %td Pnts
+          %td Grade
+          %td Teacher
+          %td Remarks
+      %tbody
+        %tr
+          %td Eng
+          %td 38% D+
+          %td 33% D
+          %td 43 D+
+          %td 35.5
+          %td 3.5
+          %td D+
+          %td Tr. Kilunda
+          %td Below Average
+        %tr
+          %td Kis
+          %td 38% D+
+          %td 33% D
+          %td 43 D+
+          %td 35.5
+          %td 3.5
+          %td D+
+          %td Tr. Kilunda
+          %td Below Average
+        %tr
+          %td Math
+          %td 38% D+
+          %td 33% D
+          %td 43 D+
+          %td 35.5
+          %td 3.5
+          %td D+
+          %td Tr. Kilunda
+          %td Below Average
+        %tr
+          %td Bio
+          %td 38% D+
+          %td 33% D
+          %td 43 D+
+          %td 35.5
+          %td 3.5
+          %td D+
+          %td Tr. Kilunda
+          %td Below Average
+
+%div.row
+  %div.col-lg-6
+  -# = line_chart User.group_by_day(:created_at).count 
+    
+  = pie_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
                   
           
                
