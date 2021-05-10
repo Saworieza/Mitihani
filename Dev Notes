@@ -40,7 +40,7 @@ Change fees to be layered into terms and the votehead totals be split into three
 be cumulative.
 Add multiple classroom options for a fee structure and multiple stream options for the selected classrooms
 Payment
-    Date, Student, Transaction ID(auto), Bank, Payment Plan*, Amount, Status
+    Make Transaction ID Unique and Auto generated based on a format provied in a field. not hard coded
 
 Subject results 
   rename to exam result

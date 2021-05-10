@@ -96,8 +96,8 @@
             %thead
               %tr
                 %th Subject
-                %th Teacher
                 %th Marks
+                %th Teacher
                 %th Pnts
                 %th Grade
                 %th Dev
@@ -105,8 +105,8 @@
               %tbody
                 %tr
                   %td= link_to result.subject.name, result.subject
-                  %td Tr. Kilunda
                   %td= link_to "#{result.marks.where(student_id: @student.id).pluck(:mark).sum}", result
+                  %td Tr. Kilunda
                   %td 7
                   %td C+
                   %td 2^

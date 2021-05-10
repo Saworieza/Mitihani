@@ -34,7 +34,7 @@
                   %td= link_to result.subject.name, result
                   %td= result.subject_mean
                   %td= result.marks.count
-
+          %tr
             = line_chart results.group_by(&:subject)
 
   -# ********************* EXPERIMENT ZONE A ************************
