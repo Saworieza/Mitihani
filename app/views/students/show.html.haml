@@ -84,12 +84,12 @@
             %th.topline= number_with_delimiter(fee.fee_balance)
 
 %div.row
-  %div.col-lg-3
+  %div.col-lg-6
     %b Students Marks:
-    %table.table.table-striped
-      %thead
-      %tbody
-        - @student.stream.subject_results.group_by(&:exam).each do |exam, results|
+    - @student.stream.subject_results.group_by(&:exam).each do |exam, results|
+      %table.table.table-striped
+        %thead
+        %tbody
           %tr
             %td.topline{colspan: 2} #{link_to exam.exam_name, exam}
           %tr
@@ -122,12 +122,18 @@
               -# %td.topline 7
               -# %td.topline C+
               -# %td.topline
-  %div.col-lg-3
-    = pie_chart @student.stream.subject_results.group_by(&:exam).count
+
+  %div.col-lg-6
+    
+
+%div.row
+  %div.col-lg-6
+    = column_chart({"Eng" => 65.2, "Math" => 51.9, "Kis" => 59.1, "Bio" => 36.1, "Chem"=> 55.5, "Phyc" => 58.9, "H&G"=> 72.5, "Bs" => 48.1})
+  
   -# ************************ AREA 51 *************************
   %div.col-lg-6
     %h3 Term One 2021
-    %table.table.table-striped
+    %table.table.table-bordered.border-primary
       %thead
         %tr
           %td Subject

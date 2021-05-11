@@ -37,3 +37,6 @@
             %td= link_to mark.student.stud_name, mark.student
             %td= mark.mark
             %td #{index}
+
+  %div.col-lg-4
+    = column_chart @subject_result.marks.group(:mark).sum(:mark)
