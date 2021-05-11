@@ -22,3 +22,7 @@
 
       %br
 
+  %div.col-lg-6
+    = line_chart Student.group_by_day(:created_at).count 
+
+

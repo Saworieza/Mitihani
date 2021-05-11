@@ -45,7 +45,7 @@ gem 'cocoon'
 gem 'wicked'
 gem 'chosen-rails'
 
-gem 'invoicing'
+gem 'groupdate'
 gem 'filterrific'
 
 # inline editing

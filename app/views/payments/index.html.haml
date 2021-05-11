@@ -1,30 +1,37 @@
 %h1 Listing payments
 = link_to 'New Payment', new_payment_path
 
-%table.table.table-striped
-  %thead
-    %tr
-      %th Transactionid
-      %th Fee
-      %th Student
-      %th Date
-      %th Amount
-      %th Bank
-      %th Method
-      %th
-      %th
-      %th
-
-  %tbody
-    - @payments.each do |payment|
+%div.row
+  %table.table.table-striped
+    %thead
       %tr
-        %td= link_to payment.TransactionId, payment
-        %td= payment.fee.package
-        %td= payment.student.stud_name
-        %td= payment.date
-        %td= number_with_delimiter(payment.amount)
-        %td= payment.bank
-        %td= payment.method
+        %th Transactionid
+        %th Fee
+        %th Student
+        %th Date
+        %th Amount
+        %th Bank
+        %th Method
+        %th
+        %th
+        %th
 
-%br
+    %tbody
+      - @payments.each do |payment|
+        %tr
+          %td= link_to payment.TransactionId, payment
+          %td= payment.fee.package
+          %td= payment.student.stud_name
+          %td= payment.date
+          %td= number_with_delimiter(payment.amount)
+          %td= payment.bank
+          %td= payment.method
 
+  %br
+
+%div.row
+  %div.col-lg-6
+    = area_chart Payment.group(:amount).count
+  
+  %div.col-lg-6
+    = line_chart Payment.group_by_day(:created_at).count

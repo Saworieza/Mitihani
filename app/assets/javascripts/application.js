@@ -20,9 +20,9 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= requre chartkick
-//= require Chart.bundle
 //= require cocoon
+//= require Chart.bundle
+//= require chartkick
 //= require_tree .
 
 $(document).ready(function() {

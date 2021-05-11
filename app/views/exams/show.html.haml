@@ -35,7 +35,10 @@
                   %td= result.subject_mean
                   %td= result.marks.count
           %tr
-            = line_chart results.group_by(&:subject)
+            -# = line_chart results.group_by(&:subject)
+            = bar_chart results.group_by(&:subject)
+
+
 
   -# ********************* EXPERIMENT ZONE A ************************
 
@@ -56,10 +59,11 @@
             -results.each do |result|
               %tbody
                 %tr
-                  %td= link_to result.stream.full_name, result
+                  -# %td= link_to result.stream.full_name, result
                   %td= link_to result.subject.short, result.subject
                   - result.marks.each do |mark|
                     %td= link_to mark.student.stud_name, mark.student
+                    %td= mark.student.stream.full_name
                     %td= mark.mark
 
   -# ********************* //EXPERIMENT ZONE A ************************

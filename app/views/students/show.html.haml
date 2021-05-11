@@ -84,45 +84,46 @@
             %th.topline= number_with_delimiter(fee.fee_balance)
 
 %div.row
-  %div.col-lg-6
+  %div.col-lg-3
     %b Students Marks:
     %table.table.table-striped
       %thead
       %tbody
         - @student.stream.subject_results.group_by(&:exam).each do |exam, results|
           %tr
-            %td.topline{colspan: 7} #{link_to exam.exam_name, exam}
+            %td.topline{colspan: 2} #{link_to exam.exam_name, exam}
           %tr
             %thead
               %tr
                 %th Subject
                 %th Marks
-                %th Teacher
-                %th Pnts
-                %th Grade
-                %th Dev
+                -# %th Teacher
+                -# %th Pnts
+                -# %th Grade
+                -# %th Dev
             -results.each do |result|
               %tbody
                 %tr
                   %td= link_to result.subject.name, result.subject
                   %td= link_to "#{result.marks.where(student_id: @student.id).pluck(:mark).sum}", result
-                  %td Tr. Kilunda
-                  %td 7
-                  %td C+
-                  %td 2^
+                  -# %td Tr. Kilunda
+                  -# %td 7
+                  -# %td C+
+                  -# %td 2^
             %tr
-              %td.subtotal{colspan: 2} Total Score: 
+              %td.subtotal Total Score: 
               %td.subtotal #{results.map{|res| res.marks.where(student_id: @student.id).pluck(:mark)}.flatten.sum}
-              %td.subtotal 21
-              %td.subtotal C+
-              %td.subtotal
+              -# %td.subtotal 21
+              -# %td.subtotal C+
+              -# %td.subtotal
             %tr
-              %td.topline{colspan: 2} Mean Marks
+              %td.topline Mean Marks
               %td.topline #{(results.map{|res| res.marks.where(student_id: @student.id).pluck(:mark)}.flatten.sum) / (results.count)}
-              %td.topline 7
-              %td.topline C+
-              %td.topline
-
+              -# %td.topline 7
+              -# %td.topline C+
+              -# %td.topline
+  %div.col-lg-3
+    = pie_chart @student.stream.subject_results.group_by(&:exam).count
   -# ************************ AREA 51 *************************
   %div.col-lg-6
     %h3 Term One 2021
@@ -179,12 +180,19 @@
           %td D+
           %td Tr. Kilunda
           %td Below Average
+%div.row
+  %div.col-lg-4
+    -# = pie_chart @events.group(:food_restriction).count
 
 %div.row
-  %div.col-lg-6
-  -# = line_chart User.group_by_day(:created_at).count 
-    
-  = pie_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
+  %div.col-lg-3
+    = bar_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
+  %div.col-lg-3
+    = column_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
+  %div.col-lg-3
+    = line_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
+  %div.col-lg-3
+    = pie_chart({"football" => 10, "basketball" => 5, "volleyball" => 7, "rugby" => 8, "fussball"=> 4})
                   
           
                

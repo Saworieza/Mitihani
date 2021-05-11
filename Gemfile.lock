@@ -98,6 +98,8 @@ GEM
     filterrific (5.2.1)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    groupdate (5.2.2)
+      activesupport (>= 5)
     haml (5.2.1)
       temple (>= 0.8.0)
       tilt
@@ -114,8 +116,6 @@ GEM
       ruby_parser (~> 3.5)
     i18n (1.8.9)
       concurrent-ruby (~> 1.0)
-    invoicing (1.1.0)
-      rails (>= 3.2.13)
     io-like (0.3.1)
     jbuilder (2.11.2)
       activesupport (>= 5.0.0)
@@ -271,9 +271,9 @@ DEPENDENCIES
   cocoon
   coffee-rails (~> 4.2)
   filterrific
+  groupdate
   haml
   haml-rails (~> 2.0)
-  invoicing
   jbuilder (~> 2.5)
   jquery-datatables
   jquery-rails
