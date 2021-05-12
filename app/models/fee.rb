@@ -35,8 +35,6 @@ class Fee < ApplicationRecord
     yearly_fee - fee_payment_sum
   end
 
-  # def student_payments(id)
-  #   Student.find(id).payments.where(fee_id: self.id).sum(:amount)
-  # end
+  
 
 end

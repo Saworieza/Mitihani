@@ -39,4 +39,4 @@
             %td #{index}
 
   %div.col-lg-4
-    = column_chart @subject_result.marks.group(:mark).sum(:mark)
+    = area_chart @subject_result.marks.group(:mark).sum(:mark)

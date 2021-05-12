@@ -36,6 +36,7 @@
           %th AC/Year
           %th Amount
           %th Paid
+          %th test
           %th Balance
 
       %tbody
@@ -45,10 +46,10 @@
             -# %td= link_to fee.stream.full_name, stream_path
             %td= fee.year.year
             %td= number_with_delimiter(fee.yearly_fee)
+            -# issue with fee payment sum. taking total payments instead of current student payments
             %td= number_with_delimiter(fee.fee_payment_sum)
+            %td= number_with_delimiter(fee.student_payments)
             %td= number_with_delimiter(fee.fee_balance)
-            -# - fee.payments.each do |payment|
-            -#   %td= payment.amount
             
   %div.col-lg-5
     %h5 Fee Payments

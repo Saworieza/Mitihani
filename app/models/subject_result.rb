@@ -15,4 +15,6 @@ class SubjectResult < ApplicationRecord
     total / self.marks.count
   end
 
+
+
 end
