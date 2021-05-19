@@ -35,6 +35,8 @@ class Fee < ApplicationRecord
     yearly_fee - fee_payment_sum
   end
 
-  
+  def student_balance
+    yearly_fee - payments.sum(&:amount)
+  end
 
 end
