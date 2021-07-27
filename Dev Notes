@@ -36,6 +36,9 @@ Lock classroom using year. cant have two classes with same name in same year
 2. that the excess fee does not add to the cost of total fees for an academic year
 
 //****************  MODEL REDESIGNS   ********************\\
+payments
+  Student, reference(admission of payment ref)
+
 Change fees to be layered into terms and the votehead totals be split into three chunks of terms and the payment 
 be cumulative.
 Add multiple classroom options for a fee structure and multiple stream options for the selected classrooms
@@ -64,7 +67,9 @@ Automatically increment a field value in rails
   end
 
 
-
-
 create school. 
 Each school comes with subdomain.domain.uri
+
+
+Pesapal partners with Safaricom and Co-operative Bank of Kenya
+PesaPal in partnership with Co-operative and Safaricom provide an online payment service that enables any school to receive and track payments for special activities such as school trips, activity fees, fund raisers etc. Read more on this partnership

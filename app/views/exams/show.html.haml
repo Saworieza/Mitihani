@@ -127,3 +127,25 @@
 
 %div.row
   %div.col-lg-6
+    %b Students Marks:
+    %table.table.table-striped
+      %thead
+      %tbody
+        - @exam.subject_results.group_by(&:exam).each do |exam, results|
+          %tr.thead-dark 
+            -# %td= link_to exam.exam_name, exam
+          %tr
+            %thead
+              %tr
+                %th Subject
+                %th Marks
+            -results.group_by(&:subject).each do |subject, result|
+              %tbody
+                %tr
+                %tr
+                  %td= link_to subject.name, subject
+                - result.each do |res|
+                  %tr
+                    - res.marks.each do |mark|
+                      %td= link_to mark.student.stud_name, mark.student
+                      %td= mark.mark

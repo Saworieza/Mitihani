@@ -26,7 +26,7 @@
     = link_to 'Back', students_path
     \|
     = link_to 'Destroy', @student, method: :delete, data: { confirm: 'Are you sure?' }
-  %div.col-lg-4
+  -# %div.col-lg-4
     %h5 Yearly Fee & Balance
     %table.table.table-striped
       %thead
@@ -49,7 +49,7 @@
             %td= number_with_delimiter(fee.fee_balance)
             
   %div.col-lg-5
-    %h5 Fee Payments
+    %h5 Fee Management
     %b Total Payments OverTime : Kshs
     = number_with_delimiter(@student.payments.sum(:amount))
     %table.table.table-striped
@@ -57,8 +57,10 @@
       %tbody
         - @student.payments.group_by(&:fee).each do |fee, payments|
           %tr.thead-dark 
-            %td.topline{colspan: 4}
+            %td.topline{colspan: 2}
               %b= fee.package
+            %td.topline #{number_with_delimiter(fee.yearly_fee)}
+            %td.topline #{number_with_delimiter(fee.yearly_fee - payments.sum(&:amount))}
           %tr
             %thead
               %tr
@@ -81,9 +83,9 @@
             %th.topline{colspan: 3} Fee Balance For #{link_to fee.year.year, fee}
             %th.topline= number_with_delimiter(fee.yearly_fee - payments.sum(&:amount))
 
-%div.row
-  %div.col-lg-6
-    %b Students Marks:
+  %div.col-lg-4
+    %h5 Exam Management
+    %b #{@student.stud_name} Performance
     - @student.stream.subject_results.group_by(&:exam).each do |exam, results|
       %table.table.table-striped
         %thead
