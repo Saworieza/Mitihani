@@ -7,10 +7,10 @@
           %li= message
 
   .field
-    = f.label :class
+    = f.label :classroom_id
     = f.collection_select :classroom_id, Classroom.all, :id, :class_name, include_blank: true
   .field
-    = f.label :stream
+    = f.label :stream_id, 'Stream'
     = f.grouped_collection_select :stream_id, Classroom.all, :streams, :class_name, :id, :full_name, include_blank: true, input_html: { :multiple => true } 
   .field
     = f.label :exam

@@ -67,6 +67,46 @@
                     %td= mark.mark
 
   -# ********************* //EXPERIMENT ZONE A ************************
+  
+  -# experiment zone B
+  %h1 Zone B
+  %h3 Form One Green 2021
+  %table.table.table-striped
+    %thead
+      %tr
+        %th.head-rotate Student name
+        %th.head-rotate Stream
+        %th.head-rotate Subjects
+        %th.head-rotate English
+        %th.head-rotate Kiswahili
+        %th.head-rotate Maths
+        %th.head-rotate &sum;
+    %tbody
+      - @exam.subject_results.group_by(&:classroom).each do |classroom, results|
+        - results.each do |result|
+          - result.marks.each do |mark|
+            %tr
+              - if mark.student != @current_student
+                @current_student = mark.student
+                %td= link_to mark.student.stud_name, mark.student
+                %td= mark.student.stream.full_name
+              -#   %td= result.subjects.count
+              -# - if mark.subject.name == "English"
+              -#   %td= mark.mark
+              -# - elsif mark.subject.name == "Kiswahili"
+              -#   %td= mark.mark
+              -# - elsif mark.subject.name == "Maths"
+              -#   %td= mark.mark
+              -# - if mark.subject == result.subjects.last
+              -#   %td= mark.student.marks.sum(&:mark)
+
+
+
+
+
+
+  -#experiment zone B
+
 %hr
   -# ********************* EXPERIMENT ZONE B ************************
 %div.row
