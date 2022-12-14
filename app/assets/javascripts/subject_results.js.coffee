@@ -3,12 +3,13 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 jQuery ->
+  $('#subject_result_stream_id').parent().hide()
   streams = $('#subject_result_stream_id').html()
-#   console.log(streams)
+  console.log(streams)
   $('#subject_result_classroom_id').change ->
     classroom = $('#subject_result_classroom_id :selected').text()
     options = $(streams).filter("optgroup[label=#{classroom}]").html()
-    # console.log(options)
+    console.log(options)
     if options
       $('#subject_result_stream_id').html(options)
       $('#subject_result_stream_id').parent().show()      
